@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -224,6 +225,53 @@ top: 0px;
 right: 180px;
 visibility: visible;
 }
+#appHover {
+width: 100%;
+background: transparent;
+height: 100px;
+position: absolute;
+top: 390px;
+visibility: hidden;
+}
+.appIcon {
+width: 40px;
+cursor: pointer;
+}
+#searchApp {
+width: 40px;
+cursor: pointer;
+position: absolute;
+top: 20px;
+left: 10%;
+}
+#accountApp {
+width: 40px;
+cursor: pointer;
+position: absolute;
+top: 20px;
+left: 30%;
+}
+#webstoreApp {
+width: 40px;
+cursor: pointer;
+position: absolute;
+top: 20px;
+right: 45%;
+}
+#corporateApp {
+width: 40px;
+cursor: pointer;
+position: absolute;
+top: 20px;
+right: 30%;
+}
+#weatherApp {
+width: 40px;
+cursor: pointer;
+position: absolute;
+top: 20px;
+right: 10%;
+}
 </style>
 </head>
 <body onload="getLocation()" id="body">
@@ -241,6 +289,18 @@ visibility: visible;
 
 <img src="https://lh6.googleusercontent.com/mmiL--2ofhJsY5i5S6Uay9cHnW_8o8ueOV8qQqjTA5lC_b2vEn2mV-Dz4jSHB-ugr38EjR-vuLtWq8gmFyTsv66VRP6JNwmHuKmXsob7SOd8e3UQ3DjzOvyau5_TzI4jSQ=w1280" title="By URL" id="internetLogo">
 
+<div id="appHover">
+<img src="https://drive.google.com/thumbnail?id=1vlBV9onFWQLszILsmnmmpBsD7fcTT9qR" id="searchApp" class="appIcon" title="gBrowser Search">
+<img src="https://drive.google.com/thumbnail?id=1vlBV9onFWQLszILsmnmmpBsD7fcTT9qR" id="accountApp" title="gBrowser controls account" class="appIcon">
+<img src="https://drive.google.com/thumbnail?id=1n9W6xiHo2FnINpCeKOZ18kGdZELxsDXa" id="webstoreApp" title="Web Store" class="appIcon">
+<img src="https://lh5.googleusercontent.com/Pe7polnAb_G6fwScqVIZhKB5e5gmRdOlkiIZO4dsiB5_i_qBpwzvbMvKp9CioE8-i4xjva-0rGovcI8W1__haY2D2ck0N2DWVLaWmWalxneh3cyG
+" id="corporateApp" title="Corporate Center" class="appIcon">
+
+<img src="https://drive.google.com/thumbnail?id=1IF0hRM2Tc5pp09fQVuB-kA8GHZWoquAg" id="weatherApp" title="Weather" class="appIcon">
+</div>
+
+</div>
+
 </div>
 
 
@@ -253,7 +313,7 @@ visibility: visible;
 <a href="https://sites.google.com/view/web-store1/home" target="_blank">
 <button class="settings" id="webStore" title="Open the Web Store">Store</button></a>
 
-<button class="settings" id="appButton" href="#" title="More apps">Apps</button>
+<button class="settings" id="appButton" href="#" title="More apps" onclick="showApps()">Apps</button>
 
 <button class="settings" id="location" href="#" title="Your location" onclick="getLocation()">Location</button>
 
@@ -273,6 +333,7 @@ visibility: visible;
 <a href="https://lb123658.github.io/gBrowser/" target="_blank">   
    <button class="app">gBrowser account</button></a>
 <button class="app" onclick="dark()">Dark mode</button>
+<button class="app" onclick="light()">Light mode</button>
 <button class="app" onclick="hideSettings()">Close menu</button>
 </div>
 
@@ -410,6 +471,12 @@ document.getElementById("internetLogo").title = "Search Lycos";
 }
 function dark() {
    document.getElementById("body").style.background = "#282828";
+}
+function light() {
+   document.getElementById("body").style.background = "white";
+}
+function showApps() {
+document.getElementById("appHover").style.visibility = "visible";
 }
 </script>
 
