@@ -226,7 +226,7 @@ visibility: visible;
 }
 </style>
 </head>
-<body onload="getLocation()">
+<body onload="getLocation()" id="body">
 
 <div id="leftDiv"></div>
 
@@ -270,8 +270,9 @@ visibility: visible;
 <button class="app" id="lycos" onclick="lycos()">Lycos</button>
 <button class="app" onclick="reloadPage()">By URL</button><br><br><br>
 <p class="choice">Personal settings</p>
-<button class="app">gBrowser account</button>
-<button class="app" onclick="spanish()">en Español</button>
+<a href="https://lb123658.github.io/gBrowser/" target="_blank">   
+   <button class="app">gBrowser account</button></a>
+<button class="app" onclick="dark()">Dark mode</button>
 <button class="app" onclick="hideSettings()">Close menu</button>
 </div>
 
@@ -406,6 +407,9 @@ document.getElementById("duckduckgo").style.color = "grey";
 document.getElementById("ecosia").style.color = "grey";
 document.getElementById("internetLogo").src = "https://lh5.googleusercontent.com/bFAccRYT6qHcwfl5qD2KWNjMEhqlH0eTMVh7BK3Kj_QYV_CwH_gxf5JT_LekyezZb4qPbmfH3H0n6RMMb1Zcnd4TYD0C6dN_EruKxNZTohEPGfP0SdD2At_Pn1lVFj6jaQ=w1280";
 document.getElementById("internetLogo").title = "Search Lycos";
+}
+function dark() {
+   document.getElementById("body").style.background = "#282828";
 }
 </script>
 
