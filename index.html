@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,6 +5,24 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel='icon' href='https://drive.google.com/thumbnail?id=1vlBV9onFWQLszILsmnmmpBsD7fcTT9qR' type='image/png'/ >
    <meta name="Description" content="Search the web all from one place." />
+   
+<script>
+var x = document.getElementById("location");
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else { 
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+document.getElementById("location".style.visibility = "visible";
+}
+
+function showPosition(position) {
+  x.innerHTML = "Latitude: " + position.coords.latitude + 
+  "<br>Longitude: " + position.coords.longitude;
+}
+</script>   
 
 <style>
 #leftDiv {
@@ -203,9 +219,15 @@ visibility: visible;
 z-index: 1;
 height: 30px;
 }
+#location {
+position: absolute;
+top: 0px;
+right: 180px;
+visibility: hidden;
+}
 </style>
 </head>
-<body>
+<body onload="getLocation()">
 
 <div id="leftDiv"></div>
 
@@ -234,6 +256,8 @@ height: 30px;
 
 <button class="settings" id="appButton" href="#" title="More apps">Apps</button>
 
+<button class="settings" id="location" href="#" title="Your location" onclick="getLocation()">Location</button>
+
 
 <div id="choiceBar">
 <p class="choice">Choose which search engine to use</p>
@@ -245,7 +269,10 @@ height: 30px;
 <button class="app" id="ecosia" onclick="ecosia()">Ecosia</button>
 <button class="app" id="duckduckgo" onclick="duckduckgo()">DuckDuckGo</button>
 <button class="app" id="lycos" onclick="lycos()">Lycos</button>
-<button class="app" onclick="reloadPage()">By URL</button><br><br>
+<button class="app" onclick="reloadPage()">By URL</button><br><br><br>
+<p class="choice">Personal settings</p>
+<button class="app">gBrowser account</button>
+<button class="app" onclick="spanish()">en Español</button>
 <button class="app" onclick="hideSettings()">Close menu</button>
 </div>
 
@@ -382,5 +409,6 @@ document.getElementById("internetLogo").src = "https://lh5.googleusercontent.com
 document.getElementById("internetLogo").title = "Search Lycos";
 }
 </script>
+
 </body>
 </html>
