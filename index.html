@@ -1,0 +1,358 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>gBrowser - search the web</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel='icon' href='https://drive.google.com/thumbnail?id=1vlBV9onFWQLszILsmnmmpBsD7fcTT9qR' type='image/png'/ >
+   <meta name="Description" content="Search the web all from one place." />
+
+<style>
+#leftDiv {
+position: absolute;
+top: 0px;
+left: 0px;
+width: 20%;
+height: 100%;
+}
+#rightDiv {
+position: absolute;
+top: 0px;
+right: 0px;
+width: 20%;
+height: 100%;
+}
+#centerDiv {
+position: absolute;
+top: 0px;
+right: 20%;
+width: 60%;
+height: 100%;
+}
+.search { 
+font-size:24px;
+border-radius: 0px 0px 0px 0px;
+border: 1px solid lightgrey;
+float: left;
+padding: 0px;
+color: grey;
+height: 43px;
+width: 74%;
+}
+
+.search:hover {
+border: 1px solid #4285f4ff;
+background-color: #fafafa;
+color: #4285f4ff;
+}
+
+.starter {
+font-size:24px;
+border-radius: 30px 0px 0px 30px;
+border: 1px solid #4285f4ff;
+background-color: white;
+height: 45px;
+width: 7%;
+cursor: pointer;
+Color: #4285f4ff;
+Font-size: 30px;
+}
+.starter:hover {
+Border: 2px solid #4285f4ff;
+}
+.enter {
+height: 45px;
+font-size:24px;
+border-radius: 0px 30px 30px 0px;
+width: 19%;
+border: 2px solid #4285f4ff;
+background: transparent;
+color: #4285f4ff;
+height: 45px;
+cursor: pointer;
+font-family: futura;
+}
+.enter:hover {
+background-color: #4285f4ff;
+animation-name: go;
+  animation-duration: 0.9s;
+  animation-iteration-count: 1;
+  color: white;
+}
+@keyframes go {
+ 
+  0% {background-color: white;}
+  100%   {background-color: #4285F4;}
+
+}
+.futura {
+font-family: futura;
+font-size: 100px;
+text-align: center;
+color: #db4437ff;
+cursor: default;
+}
+.blue {
+color: #4285f4ff;
+}
+.green {
+color: #8acf26ff;
+}
+
+body {
+font-family: futura;
+}
+#search {
+position: absolute;
+top: 300px;
+right: 0px;
+}
+#demo {
+position: absolute;
+top: 300px;
+left: 7%;
+background: transparent;
+}
+#back {
+position: absolute;
+left: 0px;
+top: 300px;
+}
+#title {
+text-align: center;
+}
+.settings {
+border: none;
+width: 100px;
+height: 30px;
+font-size: 18px;
+cursor: pointer;
+background: transparent;
+color: grey;
+}
+.settings:hover {
+color: black;
+}
+#menuOpen {
+position: absolute;
+top: 0px;
+left: 0px;
+visibility: visible;
+}
+#helpButton {
+position: absolute;
+top: 0px;
+left: 100px;
+visibility: visible;
+}
+#choiceBar {
+position: absolute;
+top: 30px;
+left: 0px;
+font-family: futura;
+cursor: default;
+border: 2px solid #4285F4;
+background: transparent;
+width: 140px;
+visibility: hidden;
+border-radius: 6px;
+}
+.choice {
+color: grey;
+cursor: default;
+text-align: center;
+font-size: 14px;
+width: 100%;
+}
+.app {
+width: 100%;
+color: grey;
+font-size: 17px;
+cursor: pointer;
+border: none;
+}
+.app:hover {
+color: black;
+background: lightgrey;
+}
+#searchLogo {
+position: absolute;
+top: 300px;
+left: 23%;
+height: 20px;
+z-index: 2;
+}
+#webStore {
+position: absolute;
+top: 0px;
+right: 0px;
+visibility: visible;
+}
+#appButton {
+position: absolute;
+top: 0px;
+right: 80px;
+visibility: visible;
+}
+</style>
+</head>
+<body>
+
+<div id="leftDiv"></div>
+
+<div id="centerDiv">
+<p class="futura" id="title"><span class="blue">gB</span>row<span class="green">ser</span></p>
+
+<input type="submit" class="starter" value="<" onclick="theBackspace(); reFill()" id="back">
+<form action="https://www.google.com/url?" id="form" target="_blank">
+<input type="input" class="search" name="q"  placeholder=" gBrowser" id="demo">
+<button class="enter" id="search">Search</button>
+</form>
+</div>
+
+
+<div id="rightDiv"></div>
+
+<button class="settings" id="menuOpen" title="Change search settings" onclick="showMenu()">Settings</button>
+
+<button class="settings" id="helpButton" title="gBrowser help" onclick="help()">Help</button>
+
+<a href="https://sites.google.com/view/web-store1/home" target="_blank">
+<button class="settings" id="webStore" title="Open the Web Store">Store</button></a>
+
+<button class="settings" id="appButton" href="#" title="More apps">Apps</button>
+
+
+<div id="choiceBar">
+<p class="choice">Choose which search engine to use</p>
+<button class="app" id="google" onclick="google()">Google</button>
+<button class="app" id="bing" onclick="bing()">Bing</button>
+<button class="app" id="yahoo" onclick="yahoo()">Yahoo!</button>
+<button class="app" id="baidu" onclick="baidu()">Baidu</button>
+<button class="app" id="yandex" onclick="yandex()">Yandex</button>
+<button class="app" id="ecosia" onclick="ecosia()">Ecosia</button>
+<button class="app" id="duckduckgo" onclick="duckduckgo()">DuckDuckGo</button>
+<button class="app" id="lycos" onclick="lycos()">Lycos</button>
+<button class="app" onclick="reloadPage()">By URL</button><br><br>
+<button class="app" onclick="hideSettings()">Close menu</button>
+</div>
+
+
+
+
+<script>
+function theBackspace() {
+document.getElementById("demo").value = "";
+document.getElementById("demo").placeholder = "Search cleared...";
+}
+function help() {
+alert("gBrowser help: 1. Check the settings located in the upper left corner to change the search engine you are using. 2. Click the profile icon in the upper right corner to access your gBrowser account and moniter your security.");
+}
+function showMenu() {
+document.getElementById("choiceBar").style.visibility = "visible";
+}
+function hideSettings() {
+document.getElementById("choiceBar").style.visibility = "hidden";
+}
+function google() {
+document.getElementById("form").action = "https://www.google.com/search?";
+document.getElementById("demo").name = "q";
+document.getElementById("google").style.color = "#4285F4";
+document.getElementById("yahoo").style.color = "grey";
+document.getElementById("bing").style.color = "grey";
+document.getElementById("baidu").style.color = "grey";
+document.getElementById("yandex").style.color = "grey";
+document.getElementById("ecosia").style.color = "grey";
+document.getElementById("duckduckgo").style.color = "grey";
+document.getElementById("lycos").style.color = "grey";
+}
+function yahoo() {
+document.getElementById("form").action = "https://search.yahoo.com/search?";
+document.getElementById("demo").name = "p";
+document.getElementById("yahoo").style.color = "#4285F4";
+document.getElementById("google").style.color = "grey";
+document.getElementById("bing").style.color = "grey";
+document.getElementById("baidu").style.color = "grey";
+document.getElementById("yandex").style.color = "grey";
+document.getElementById("ecosia").style.color = "grey";
+document.getElementById("duckduckgo").style.color = "grey";
+document.getElementById("lycos").style.color = "grey";
+}
+function reloadPage() {
+location.reload();
+}
+function bing() {
+document.getElementById("form").action = "https://www.bing.com/search?";
+document.getElementById("demo").name = "q";
+document.getElementById("bing").style.color = "#4285F4";
+document.getElementById("yahoo").style.color = "grey";
+document.getElementById("google").style.color = "grey";
+document.getElementById("baidu").style.color = "grey";
+document.getElementById("yandex").style.color = "grey";
+document.getElementById("ecosia").style.color = "grey";
+document.getElementById("duckduckgo").style.color = "grey";
+document.getElementById("lycos").style.color = "grey";
+}
+function baidu() {
+document.getElementById("form").action = "https://www.baidu.com/s?";
+document.getElementById("demo").name = "wd";
+document.getElementById("baidu").style.color = "#4285F4";
+document.getElementById("yahoo").style.color = "grey";
+document.getElementById("bing").style.color = "grey";
+document.getElementById("google").style.color = "grey";
+document.getElementById("yandex").style.color = "grey";
+document.getElementById("ecosia").style.color = "grey";
+document.getElementById("duckduckgo").style.color = "grey";
+document.getElementById("lycos").style.color = "grey";
+}
+function yandex() {
+document.getElementById("form").action = "https://yandex.ru/search/?";
+document.getElementById("demo").name = "text";
+document.getElementById("yandex").style.color = "#4285F4";
+document.getElementById("yahoo").style.color = "grey";
+document.getElementById("bing").style.color = "grey";
+document.getElementById("google").style.color = "grey";
+document.getElementById("baidu").style.color = "grey";
+document.getElementById("ecosia").style.color = "grey";
+document.getElementById("duckduckgo").style.color = "grey";
+document.getElementById("lycos").style.color = "grey";
+}
+function ecosia() {
+document.getElementById("form").action = "https://www.ecosia.org/search?";
+document.getElementById("demo").name = "q";
+document.getElementById("ecosia").style.color = "#4285F4";
+document.getElementById("yahoo").style.color = "grey";
+document.getElementById("bing").style.color = "grey";
+document.getElementById("google").style.color = "grey";
+document.getElementById("baidu").style.color = "grey";
+document.getElementById("yandex").style.color = "grey";
+document.getElementById("duckduckgo").style.color = "grey";
+document.getElementById("lycos").style.color = "grey";
+}
+function duckduckgo() {
+document.getElementById("form").action = "https://duckduckgo.com/?";
+document.getElementById("demo").name = "q";
+document.getElementById("duckduckgo").style.color = "#4285F4";
+document.getElementById("yahoo").style.color = "grey";
+document.getElementById("bing").style.color = "grey";
+document.getElementById("google").style.color = "grey";
+document.getElementById("baidu").style.color = "grey";
+document.getElementById("yandex").style.color = "grey";
+document.getElementById("ecosia").style.color = "grey";
+document.getElementById("lycos").style.color = "grey";
+}
+function lycos() {
+document.getElementById("form").action = "https://search.lycos.com/web/?";
+document.getElementById("demo").name = "q";
+document.getElementById("lycos").style.color = "#4285F4";
+document.getElementById("yahoo").style.color = "grey";
+document.getElementById("bing").style.color = "grey";
+document.getElementById("google").style.color = "grey";
+document.getElementById("baidu").style.color = "grey";
+document.getElementById("yandex").style.color = "grey";
+document.getElementById("duckduckgo").style.color = "grey";
+document.getElementById("ecosia").style.color = "grey";
+}
+</script>
+</body>
+</html>
