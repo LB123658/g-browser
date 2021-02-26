@@ -1,8 +1,7 @@
-
 <!DOCTYPE html>
 <html>
 <head>
-<title>gBrowser - search the web</title>
+<title>gBrowser - <span id="topName">search the web</span></title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel='icon' href='https://drive.google.com/thumbnail?id=1vlBV9onFWQLszILsmnmmpBsD7fcTT9qR' type='image/png'/ >
    <meta name="Description" content="Search the web all from one place." />
@@ -285,7 +284,7 @@ right: 10%;
 <input type="submit" class="starter" value="<" onclick="theBackspace(); reFill()" id="back">
 <form action="https://www.google.com/url?" id="form" target="_blank">
 <input type="input" class="search" name="q"  placeholder=" gBrowser" id="demo">
-<button class="enter" id="search">Search</button>
+<button class="enter" id="search" onclick="changeTitle()">Search</button>
 </form>
 
 <img src="https://lh6.googleusercontent.com/mmiL--2ofhJsY5i5S6Uay9cHnW_8o8ueOV8qQqjTA5lC_b2vEn2mV-Dz4jSHB-ugr38EjR-vuLtWq8gmFyTsv66VRP6JNwmHuKmXsob7SOd8e3UQ3DjzOvyau5_TzI4jSQ=w1280" title="By URL" id="internetLogo">
@@ -488,6 +487,10 @@ document.getElementById("appHover").style.visibility = "visible";
 }
 function hideApps() {
 document.getElementById("appHover").style.visibility = "hidden";
+}
+function changeTitle() {
+var x = document.getElementById("demo").innerHTML;
+document.getElementById("topName").innerHTML = x;
 }
 </script>
 
