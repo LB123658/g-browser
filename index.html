@@ -272,6 +272,7 @@ position: absolute;
 top: 20px;
 right: 10%;
 }
+
 </style>
 </head>
 <body onload="getLocation()" id="body">
@@ -290,13 +291,19 @@ right: 10%;
 <img src="https://lh6.googleusercontent.com/mmiL--2ofhJsY5i5S6Uay9cHnW_8o8ueOV8qQqjTA5lC_b2vEn2mV-Dz4jSHB-ugr38EjR-vuLtWq8gmFyTsv66VRP6JNwmHuKmXsob7SOd8e3UQ3DjzOvyau5_TzI4jSQ=w1280" title="By URL" id="internetLogo">
 
 <div id="appHover">
-<img src="https://drive.google.com/thumbnail?id=1vlBV9onFWQLszILsmnmmpBsD7fcTT9qR" id="searchApp" class="appIcon" title="gBrowser Search">
-<img src="https://drive.google.com/thumbnail?id=1vlBV9onFWQLszILsmnmmpBsD7fcTT9qR" id="accountApp" title="gBrowser controls account" class="appIcon">
-<img src="https://drive.google.com/thumbnail?id=1n9W6xiHo2FnINpCeKOZ18kGdZELxsDXa" id="webstoreApp" title="Web Store" class="appIcon">
-<img src="https://lh5.googleusercontent.com/Pe7polnAb_G6fwScqVIZhKB5e5gmRdOlkiIZO4dsiB5_i_qBpwzvbMvKp9CioE8-i4xjva-0rGovcI8W1__haY2D2ck0N2DWVLaWmWalxneh3cyG
-" id="corporateApp" title="Corporate Center" class="appIcon">
+<img src="https://drive.google.com/thumbnail?id=1vlBV9onFWQLszILsmnmmpBsD7fcTT9qR" id="searchApp" class="appIcon" title="gBrowser Search" onclick="reloadPage()">
 
-<img src="https://drive.google.com/thumbnail?id=1IF0hRM2Tc5pp09fQVuB-kA8GHZWoquAg" id="weatherApp" title="Weather" class="appIcon">
+<a href="https://lb123658.github.io/gBrowser/" target="_blank">
+<img src="https://drive.google.com/thumbnail?id=1vlBV9onFWQLszILsmnmmpBsD7fcTT9qR" id="accountApp" title="gBrowser controls account" class="appIcon"></a>
+
+<a href="https://sites.google.com/view/web-store1/loading" target="_blank">
+<img src="https://drive.google.com/thumbnail?id=1n9W6xiHo2FnINpCeKOZ18kGdZELxsDXa" id="webstoreApp" title="Web Store" class="appIcon"></a>
+
+<a href="https://sites.google.com/view/texting-center-communications/home" target="_blank">
+<img src="https://lh5.googleusercontent.com/Pe7polnAb_G6fwScqVIZhKB5e5gmRdOlkiIZO4dsiB5_i_qBpwzvbMvKp9CioE8-i4xjva-0rGovcI8W1__haY2D2ck0N2DWVLaWmWalxneh3cyG
+" id="corporateApp" title="Corporate Center" class="appIcon"></a>
+
+<img src="https://drive.google.com/thumbnail?id=1IF0hRM2Tc5pp09fQVuB-kA8GHZWoquAg" id="weatherApp" title="gBrowser weather" class="appIcon">
 </div>
 
 </div>
@@ -315,7 +322,7 @@ right: 10%;
 
 <button class="settings" id="appButton" href="#" title="More apps" onclick="showApps()">Apps</button>
 
-<button class="settings" id="location" href="#" title="Your location" onclick="getLocation()">Location</button>
+<button class="settings" id="location" href="#" title="Your location" onclick="getLocation()" hidden >Location</button>
 
 
 <div id="choiceBar">
@@ -334,6 +341,7 @@ right: 10%;
    <button class="app">gBrowser account</button></a>
 <button class="app" onclick="dark()">Dark mode</button>
 <button class="app" onclick="light()">Light mode</button>
+<button class="app" onclick="hideApps()" id="appSet">Hide apps</button>
 <button class="app" onclick="hideSettings()">Close menu</button>
 </div>
 
@@ -477,6 +485,9 @@ function light() {
 }
 function showApps() {
 document.getElementById("appHover").style.visibility = "visible";
+}
+function hideApps() {
+document.getElementById("appHover").style.visibility = "hidden";
 }
 </script>
 
