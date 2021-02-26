@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>gBrowser - <span id="topName">search the web</span></title>
+<title id="topName">gBrowser - search the web</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel='icon' href='https://drive.google.com/thumbnail?id=1vlBV9onFWQLszILsmnmmpBsD7fcTT9qR' type='image/png'/ >
    <meta name="Description" content="Search the web all from one place." />
@@ -490,7 +490,7 @@ document.getElementById("appHover").style.visibility = "hidden";
 }
 function changeTitle() {
 var x = document.getElementById("demo").innerHTML;
-document.getElementById("topName").innerHTML = x;
+document.getElementById("topName").innerHTML = "gBrowser - " + x;
 }
 </script>
 
