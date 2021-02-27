@@ -207,7 +207,7 @@ height: 30px;
 position: absolute;
 top: 0px;
 right: 180px;
-visibility: hidden;
+visibility: visible;
 }
 #appHover {
 width: 100%;
@@ -268,7 +268,71 @@ animation-name: appLift;
   100%   {top: 0px;}
 
 }
-
+#extensionSection {
+position: absolute;
+top: 100px;
+width: 100%;
+height: 70%;
+background: white;
+z-index: 2;
+border-radius: 20px;
+border: 2px solid lightgrey;
+visibility: hidden;
+}
+.extend {
+border: none;
+width: 150px;
+height: 40px;
+border-radius: 20px;
+font-size: 20px;
+background: transparent;
+}
+.extend:hover {
+background: #e6e6e6;
+cursor: pointer;
+}
+#extensionP {
+text-align: center;
+font-size: 30px;
+color: grey;
+cursor: default;
+}
+#youtube {
+position: absolute;
+top: 30%;
+left: 10%;
+}
+#amazon {
+position: absolute;
+top: 50%;
+left: 10%;
+}
+#pinterest {
+position: absolute;
+top: 50%;
+right: 10%;
+}
+#wikipedia {
+position: absolute;
+top: 30%;
+right: 10%;
+}
+#closeExtensions {
+color: #4285F4;
+border: none;
+background: transparent;
+position: absolute;
+top: 90%;
+right: 5%;
+width: 100px;
+height: 40px;
+font-size: 20px;
+border-radius: 7px;
+}
+#closeExtensions:hover {
+background: #d7e1fc;
+cursor: pointer;
+}
 </style>
 </head>
 <body onload="getLocation()" id="body">
@@ -285,6 +349,16 @@ animation-name: appLift;
 </form>
 
 <img src="https://drive.google.com/thumbnail?id=1OhY3hnfa5ZW5VAX3WYPyfft3Llx_qTDV" title="By URL" id="internetLogo">
+
+<div id="extensionSection">
+<p id="extensionP">Search more websites with gBrowser extensions</p>
+<button class="extend" id="youtube" title="Search YouTube" onclick="youtube()">YouTube</button>
+<button class="extend" id="wikipedia" title="Search Wikipedia" onclick="wikipedia()">Wikipedia</button>
+<button class="extend" id="pinterest" title="Search Pinterest" onclick="pinterest()">Pinterest</button>
+<button class="extend" id="amazon" title="Search Amazon" onclick="amazon()">Amazon</button>
+<button id="closeExtensions" onclick="closeExtensions()">Close</button>
+</div>
+
 
 <div id="appHover">
 <img src="https://drive.google.com/thumbnail?id=1vlBV9onFWQLszILsmnmmpBsD7fcTT9qR" id="searchApp" class="appIcon" title="gBrowser Search" onclick="reloadPage()">
@@ -318,8 +392,7 @@ animation-name: appLift;
 
 <button class="settings" id="appButton" href="#" title="More apps" onclick="showApps()">Apps</button>
 
-<button class="settings" id="extensions" title="gBrowser extensions">Extensions</button>
-
+<button class="settings" id="extensions" title="gBrowser extensions" onclick="openExtensions()">Extensions</button>
 
 <div id="choiceBar">
 <p class="choice">Choose which search engine to use</p>
@@ -338,10 +411,10 @@ animation-name: appLift;
 <button class="app" onclick="dark()">Dark mode</button>
 <button class="app" onclick="light()">Light mode</button>
 <button class="app" onclick="hideApps()" id="appSet">Hide apps</button>
-<button class="app" id="extensionControls" onclick="showExtensions()">Show extensions</button>
+<button class="app" id="extensionControls" onclick="hideExtensions()">Hide extensions</button>
+<button class="app" onclick="revealExtensions()">Show extensions</button>
 <button class="app" onclick="hideSettings()">Close menu</button>
 </div>
-
 
 
 
@@ -373,6 +446,10 @@ document.getElementById("lycos").style.color = "grey";
 document.getElementById("internetLogo").src = "https://drive.google.com/thumbnail?id=1sJxO_Nbw89ydlCacoXP9FMW6TBwqQCcd";
 document.getElementById("internetLogo").title = "Search Google";
 document.getElementById("url").style.color = "grey";
+document.getElementById("youtube").style.background = "white";
+document.getElementById("wikipedia").style.background = "white";
+document.getElementById("amazon").style.background = "white";
+document.getElementById("pinterest").style.background = "white";
 }
 function yahoo() {
 document.getElementById("form").action = "https://search.yahoo.com/search?";
@@ -388,6 +465,10 @@ document.getElementById("lycos").style.color = "grey";
 document.getElementById("internetLogo").src = "https://drive.google.com/thumbnail?id=1ZPkXpMAcBu0h-VIMgF40awvn9vU4u-W0";
 document.getElementById("internetLogo").title = "Search Yahoo!";
 document.getElementById("url").style.color = "grey";
+document.getElementById("youtube").style.background = "white";
+document.getElementById("wikipedia").style.background = "white";
+document.getElementById("amazon").style.background = "white";
+document.getElementById("pinterest").style.background = "white";
 }
 function reloadPage() {
 location.reload();
@@ -406,6 +487,10 @@ document.getElementById("lycos").style.color = "grey";
 document.getElementById("internetLogo").src = "https://drive.google.com/thumbnail?id=1DqMLyy3SXuCJrmuewq-snPJ0AP_ImgV8";
 document.getElementById("internetLogo").title = "Search Bing";
 document.getElementById("url").style.color = "grey";
+document.getElementById("youtube").style.background = "white";
+document.getElementById("wikipedia").style.background = "white";
+document.getElementById("amazon").style.background = "white";
+document.getElementById("pinterest").style.background = "white";
 }
 function baidu() {
 document.getElementById("form").action = "https://www.baidu.com/s?";
@@ -421,6 +506,10 @@ document.getElementById("lycos").style.color = "grey";
 document.getElementById("internetLogo").src = "https://drive.google.com/thumbnail?id=1HPUJPZnI8uHdWFXI_IDX6XQiJeiVoD8D";
 document.getElementById("internetLogo").title = "Search Baidu";
 document.getElementById("url").style.color = "grey";
+document.getElementById("youtube").style.background = "white";
+document.getElementById("wikipedia").style.background = "white";
+document.getElementById("amazon").style.background = "white";
+document.getElementById("pinterest").style.background = "white";
 }
 function yandex() {
 document.getElementById("form").action = "https://yandex.ru/search/?";
@@ -436,6 +525,10 @@ document.getElementById("lycos").style.color = "grey";
 document.getElementById("internetLogo").src = "https://drive.google.com/thumbnail?id=1C7H8OUacyQ6LwGbEPBwONlybW-oN2oSK";
 document.getElementById("internetLogo").title = "Search Yandex";
 document.getElementById("url").style.color = "grey";
+document.getElementById("youtube").style.background = "white";
+document.getElementById("wikipedia").style.background = "white";
+document.getElementById("amazon").style.background = "white";
+document.getElementById("pinterest").style.background = "white";
 }
 function ecosia() {
 document.getElementById("form").action = "https://www.ecosia.org/search?";
@@ -451,6 +544,10 @@ document.getElementById("lycos").style.color = "grey";
 document.getElementById("internetLogo").src = "https://drive.google.com/thumbnail?id=1rhotZu4rzoJHvh9vPCjma-oJ_x_ueFlE";
 document.getElementById("internetLogo").title = "Search Ecosia";
 document.getElementById("url").style.color = "grey";
+document.getElementById("youtube").style.background = "white";
+document.getElementById("wikipedia").style.background = "white";
+document.getElementById("amazon").style.background = "white";
+document.getElementById("pinterest").style.background = "white";
 }
 function duckduckgo() {
 document.getElementById("form").action = "https://duckduckgo.com/?";
@@ -466,6 +563,10 @@ document.getElementById("lycos").style.color = "grey";
 document.getElementById("internetLogo").src = "https://drive.google.com/thumbnail?id=1vFRhESx9QBljPJFlPXjWZ2QV-QkSCTB4";
 document.getElementById("internetLogo").title = "Search DuckDuckGo";
 document.getElementById("url").style.color = "grey";
+document.getElementById("youtube").style.background = "white";
+document.getElementById("wikipedia").style.background = "white";
+document.getElementById("amazon").style.background = "white";
+document.getElementById("pinterest").style.background = "white";
 }
 function lycos() {
 document.getElementById("form").action = "https://search.lycos.com/web/?";
@@ -481,6 +582,10 @@ document.getElementById("ecosia").style.color = "grey";
 document.getElementById("internetLogo").src = "https://drive.google.com/thumbnail?id=1DnD2uEO2TY9domktwGh-NcvEmzF3BkRo";
 document.getElementById("internetLogo").title = "Search Lycos";
 document.getElementById("url").style.color = "grey";
+document.getElementById("youtube").style.background = "white";
+document.getElementById("wikipedia").style.background = "white";
+document.getElementById("amazon").style.background = "white";
+document.getElementById("pinterest").style.background = "white";
 }
 function dark() {
    document.getElementById("body").style.background = "#282828";
@@ -498,7 +603,10 @@ function changeTitle() {
 var x = document.getElementById("demo");
 document.getElementById("topName").innerHTML = "gBrowser - " + x.value;
 }
-function showExtensions() {
+function hideExtensions() {
+document.getElementById("extensions").style.visibility = "hidden";
+}
+function revealExtensions() {
 document.getElementById("extensions").style.visibility = "visible";
 }
 function url() {
@@ -514,9 +622,94 @@ document.getElementById("duckduckgo").style.color = "grey";
 document.getElementById("lycos").style.color = "grey";
 document.getElementById("url").style.color = "#4285F4";
 document.getElementById("internetLogo").src = "https://drive.google.com/thumbnail?id=1OhY3hnfa5ZW5VAX3WYPyfft3Llx_qTDV";
-document.getElementById("internetLogo").title = "Search Google";
+document.getElementById("internetLogo").title = "Search by URL";
+document.getElementById("youtube").style.background = "white";
+document.getElementById("wikipedia").style.background = "white";
+document.getElementById("amazon").style.background = "white";
+document.getElementById("pinterest").style.background = "white";
 }
-
+function openExtensions() {
+document.getElementById("extensionSection").style.visibility = "visible";
+}
+function closeExtensions() {
+document.getElementById("extensionSection").style.visibility = "hidden";
+}
+function youtube() {
+document.getElementById("form").action = "https://www.youtube.com/results?";
+document.getElementById("demo").name = "search_query";
+document.getElementById("internetLogo").src = "https://drive.google.com/thumbnail?id=1fM_ur4SsWvPfmCjQNEtGAwe-jUiEcBk2";
+document.getElementById("internetLogo").title = "Using extension";
+document.getElementById("youtube").style.background = "#d7e1fc";
+document.getElementById("wikipedia").style.background = "white";
+document.getElementById("amazon").style.background = "white";
+document.getElementById("pinterest").style.background = "white";
+document.getElementById("google").style.color = "grey";
+document.getElementById("yahoo").style.color = "grey";
+document.getElementById("bing").style.color = "grey";
+document.getElementById("baidu").style.color = "grey";
+document.getElementById("yandex").style.color = "grey";
+document.getElementById("ecosia").style.color = "grey";
+document.getElementById("duckduckgo").style.color = "grey";
+document.getElementById("lycos").style.color = "grey";
+document.getElementById("url").style.color = "grey";
+}
+function wikipedia() {
+document.getElementById("form").action = "https://en.wikipedia.org/wiki/Special:Search?";
+document.getElementById("demo").name = "search";
+document.getElementById("internetLogo").src = "https://drive.google.com/thumbnail?id=1fM_ur4SsWvPfmCjQNEtGAwe-jUiEcBk2";
+document.getElementById("internetLogo").title = "Using extension";
+document.getElementById("youtube").style.background = "white";
+document.getElementById("wikipedia").style.background = "#d7e1fc";
+document.getElementById("amazon").style.background = "white";
+document.getElementById("pinterest").style.background = "white";
+document.getElementById("google").style.color = "grey";
+document.getElementById("yahoo").style.color = "grey";
+document.getElementById("bing").style.color = "grey";
+document.getElementById("baidu").style.color = "grey";
+document.getElementById("yandex").style.color = "grey";
+document.getElementById("ecosia").style.color = "grey";
+document.getElementById("duckduckgo").style.color = "grey";
+document.getElementById("lycos").style.color = "grey";
+document.getElementById("url").style.color = "grey";
+}
+function amazon() {
+document.getElementById("form").action = "https://www.amazon.com/s?";
+document.getElementById("demo").name = "k";
+document.getElementById("internetLogo").src = "https://drive.google.com/thumbnail?id=1fM_ur4SsWvPfmCjQNEtGAwe-jUiEcBk2";
+document.getElementById("internetLogo").title = "Using extension";
+document.getElementById("youtube").style.background = "white";
+document.getElementById("wikipedia").style.background = "white";
+document.getElementById("amazon").style.background = "#d7e1fc";
+document.getElementById("pinterest").style.background = "white";
+document.getElementById("google").style.color = "grey";
+document.getElementById("yahoo").style.color = "grey";
+document.getElementById("bing").style.color = "grey";
+document.getElementById("baidu").style.color = "grey";
+document.getElementById("yandex").style.color = "grey";
+document.getElementById("ecosia").style.color = "grey";
+document.getElementById("duckduckgo").style.color = "grey";
+document.getElementById("lycos").style.color = "grey";
+document.getElementById("url").style.color = "grey";
+}
+function pinterest() {
+document.getElementById("form").action = "https://www.pinterest.com/search/pins/?";
+document.getElementById("demo").name = "q";
+document.getElementById("internetLogo").src = "https://drive.google.com/thumbnail?id=1fM_ur4SsWvPfmCjQNEtGAwe-jUiEcBk2";
+document.getElementById("internetLogo").title = "Using extension";
+document.getElementById("youtube").style.background = "white";
+document.getElementById("wikipedia").style.background = "white";
+document.getElementById("amazon").style.background = "white";
+document.getElementById("pinterest").style.background = "#d7e1fc";
+document.getElementById("google").style.color = "grey";
+document.getElementById("yahoo").style.color = "grey";
+document.getElementById("bing").style.color = "grey";
+document.getElementById("baidu").style.color = "grey";
+document.getElementById("yandex").style.color = "grey";
+document.getElementById("ecosia").style.color = "grey";
+document.getElementById("duckduckgo").style.color = "grey";
+document.getElementById("lycos").style.color = "grey";
+document.getElementById("url").style.color = "grey";
+}
 </script>
 </body>
 </html>
