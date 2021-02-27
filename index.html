@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -320,7 +318,7 @@ animation-name: appLift;
 
 <button class="settings" id="appButton" href="#" title="More apps" onclick="showApps()">Apps</button>
 
-<button class="settings" id="extensions" title="gBrowser extensions" onclick="showExtensions()">Extensions</button>
+<button class="settings" id="extensions" title="gBrowser extensions">Extensions</button>
 
 
 <div id="choiceBar">
@@ -333,14 +331,14 @@ animation-name: appLift;
 <button class="app" id="ecosia" onclick="ecosia()">Ecosia</button>
 <button class="app" id="duckduckgo" onclick="duckduckgo()">DuckDuckGo</button>
 <button class="app" id="lycos" onclick="lycos()">Lycos</button>
-<button class="app" onclick="reloadPage()">By URL</button><br><br><br>
+<button class="app" onclick="url()" id="url">By URL</button><br><br><br>
 <p class="choice">Personal settings</p>
 <a href="https://lb123658.github.io/gBrowser/" target="_blank">   
    <button class="app">gBrowser account</button></a>
 <button class="app" onclick="dark()">Dark mode</button>
 <button class="app" onclick="light()">Light mode</button>
 <button class="app" onclick="hideApps()" id="appSet">Hide apps</button>
-<button class="app" id="extensionControls">Show extensions</button>
+<button class="app" id="extensionControls" onclick="showExtensions()">Show extensions</button>
 <button class="app" onclick="hideSettings()">Close menu</button>
 </div>
 
@@ -374,6 +372,7 @@ document.getElementById("duckduckgo").style.color = "grey";
 document.getElementById("lycos").style.color = "grey";
 document.getElementById("internetLogo").src = "https://drive.google.com/thumbnail?id=1sJxO_Nbw89ydlCacoXP9FMW6TBwqQCcd";
 document.getElementById("internetLogo").title = "Search Google";
+document.getElementById("url").style.color = "grey";
 }
 function yahoo() {
 document.getElementById("form").action = "https://search.yahoo.com/search?";
@@ -388,6 +387,7 @@ document.getElementById("duckduckgo").style.color = "grey";
 document.getElementById("lycos").style.color = "grey";
 document.getElementById("internetLogo").src = "https://drive.google.com/thumbnail?id=1ZPkXpMAcBu0h-VIMgF40awvn9vU4u-W0";
 document.getElementById("internetLogo").title = "Search Yahoo!";
+document.getElementById("url").style.color = "grey";
 }
 function reloadPage() {
 location.reload();
@@ -405,6 +405,7 @@ document.getElementById("duckduckgo").style.color = "grey";
 document.getElementById("lycos").style.color = "grey";
 document.getElementById("internetLogo").src = "https://drive.google.com/thumbnail?id=1DqMLyy3SXuCJrmuewq-snPJ0AP_ImgV8";
 document.getElementById("internetLogo").title = "Search Bing";
+document.getElementById("url").style.color = "grey";
 }
 function baidu() {
 document.getElementById("form").action = "https://www.baidu.com/s?";
@@ -419,6 +420,7 @@ document.getElementById("duckduckgo").style.color = "grey";
 document.getElementById("lycos").style.color = "grey";
 document.getElementById("internetLogo").src = "https://drive.google.com/thumbnail?id=1HPUJPZnI8uHdWFXI_IDX6XQiJeiVoD8D";
 document.getElementById("internetLogo").title = "Search Baidu";
+document.getElementById("url").style.color = "grey";
 }
 function yandex() {
 document.getElementById("form").action = "https://yandex.ru/search/?";
@@ -433,6 +435,7 @@ document.getElementById("duckduckgo").style.color = "grey";
 document.getElementById("lycos").style.color = "grey";
 document.getElementById("internetLogo").src = "https://drive.google.com/thumbnail?id=1C7H8OUacyQ6LwGbEPBwONlybW-oN2oSK";
 document.getElementById("internetLogo").title = "Search Yandex";
+document.getElementById("url").style.color = "grey";
 }
 function ecosia() {
 document.getElementById("form").action = "https://www.ecosia.org/search?";
@@ -447,6 +450,7 @@ document.getElementById("duckduckgo").style.color = "grey";
 document.getElementById("lycos").style.color = "grey";
 document.getElementById("internetLogo").src = "https://drive.google.com/thumbnail?id=1rhotZu4rzoJHvh9vPCjma-oJ_x_ueFlE";
 document.getElementById("internetLogo").title = "Search Ecosia";
+document.getElementById("url").style.color = "grey";
 }
 function duckduckgo() {
 document.getElementById("form").action = "https://duckduckgo.com/?";
@@ -461,6 +465,7 @@ document.getElementById("ecosia").style.color = "grey";
 document.getElementById("lycos").style.color = "grey";
 document.getElementById("internetLogo").src = "https://drive.google.com/thumbnail?id=1vFRhESx9QBljPJFlPXjWZ2QV-QkSCTB4";
 document.getElementById("internetLogo").title = "Search DuckDuckGo";
+document.getElementById("url").style.color = "grey";
 }
 function lycos() {
 document.getElementById("form").action = "https://search.lycos.com/web/?";
@@ -475,6 +480,7 @@ document.getElementById("duckduckgo").style.color = "grey";
 document.getElementById("ecosia").style.color = "grey";
 document.getElementById("internetLogo").src = "https://drive.google.com/thumbnail?id=1DnD2uEO2TY9domktwGh-NcvEmzF3BkRo";
 document.getElementById("internetLogo").title = "Search Lycos";
+document.getElementById("url").style.color = "grey";
 }
 function dark() {
    document.getElementById("body").style.background = "#282828";
@@ -492,7 +498,25 @@ function changeTitle() {
 var x = document.getElementById("demo");
 document.getElementById("topName").innerHTML = "gBrowser - " + x.value;
 }
-</script>
+function showExtensions() {
+document.getElementById("extensions").style.visibility = "visible";
+}
+function url() {
+document.getElementById("form").action = "https://www.google.com/url?";
+document.getElementById("demo").name = "q";
+document.getElementById("google").style.color = "grey";
+document.getElementById("yahoo").style.color = "grey";
+document.getElementById("bing").style.color = "grey";
+document.getElementById("baidu").style.color = "grey";
+document.getElementById("yandex").style.color = "grey";
+document.getElementById("ecosia").style.color = "grey";
+document.getElementById("duckduckgo").style.color = "grey";
+document.getElementById("lycos").style.color = "grey";
+document.getElementById("url").style.color = "#4285F4";
+document.getElementById("internetLogo").src = "https://drive.google.com/thumbnail?id=1OhY3hnfa5ZW5VAX3WYPyfft3Llx_qTDV";
+document.getElementById("internetLogo").title = "Search Google";
+}
 
+</script>
 </body>
 </html>
