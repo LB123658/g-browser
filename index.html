@@ -5,8 +5,34 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel='icon' href='https://drive.google.com/thumbnail?id=1vlBV9onFWQLszILsmnmmpBsD7fcTT9qR' type='image/png'/ >
    <meta name="Description" content="Search the web all from one place." />
-
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
 <style>
+.material-icons-outlined {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+
 #leftDiv {
 position: absolute;
 top: 0px;
@@ -186,13 +212,13 @@ z-index: 2;
 #webStore {
 position: absolute;
 top: 0px;
-right: 0px;
+right: 50px;
 visibility: visible;
 }
 #appButton {
 position: absolute;
 top: 0px;
-right: 80px;
+right: 130px;
 visibility: visible;
 }
 #internetLogo {
@@ -206,7 +232,7 @@ height: 30px;
 #extensions {
 position: absolute;
 top: 0px;
-right: 180px;
+right: 230px;
 visibility: visible;
 }
 #appHover {
@@ -325,13 +351,26 @@ position: absolute;
 top: 90%;
 right: 5%;
 width: 100px;
-height: 40px;
-font-size: 20px;
+height: 20px;
+font-size: 40px;
 border-radius: 7px;
 }
 #closeExtensions:hover {
 background: #d7e1fc;
 cursor: pointer;
+}
+#appSelect {
+position: absolute;
+top: 0px;
+right: 5px;
+color: grey;
+background: transparent;
+border: none;
+font-size: 40px;
+cursor: pointer;
+}
+#appSelect:hover {
+color: lightgrey;
 }
 </style>
 </head>
@@ -393,6 +432,12 @@ cursor: pointer;
 <button class="settings" id="appButton" href="#" title="More apps" onclick="showApps()">Apps</button>
 
 <button class="settings" id="extensions" title="gBrowser extensions" onclick="openExtensions()">Extensions</button>
+
+<a href="apps/homepage">
+<button id="appSelect" title="Apps"><span class="material-icons-outlined" style="font-size: 30px;">
+apps
+</span></button></a>
+
 
 <div id="choiceBar">
 <p class="choice">Choose which search engine to use</p>
