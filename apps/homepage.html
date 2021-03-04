@@ -1,1 +1,77 @@
-Loading all apps...
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
+<style>
+body {
+background: black;
+}
+p {
+color: #46e88c;
+font-family: 'DotGothic16', sans-serif;
+font-size: 50px;
+text-decoration: none;
+}
+button {
+color: #46e88c;
+font-family: 'DotGothic16', sans-serif;
+font-size: 20px;
+text-decoration: none;
+border: none;
+background: transparent;
+}
+input {
+border: 2px solid #46e88c;
+background: black;
+font-family: 'DotGothic16', sans-serif;
+font-size: 30px;
+color: #46e88c;
+}
+#game {
+visibility: hidden;
+}
+#output {
+position: absolute;
+top: 100px;
+left: 20px;
+font-size: 20px;
+}
+</style>
+</head>
+<body>
+<div id="main">
+<p>Loading all apps...</p>
+<br><br>
+<a href="https://lb123658.github.io/g-browser/">
+<button>Return to previous page</button>
+</a>
+<br><br><br>
+<button onclick="gameBot()">Continue using gBrowser virtual assistant</button>
+</div>
+
+<div id="game">
+<input type="text" placeholder="Enter a phrase..." id="a">
+<button onclick="say()">Go</button>
+<p id="output"></p>
+</div>
+
+<script>
+function gameBot() {
+document.getElementById("game").style.visibility = "visible";
+document.getElementById("main").style.visibility = "hidden";
+}
+function say() {
+var input = document.getElementById("a");
+var ouput = document.getElementById("a");
+if (input.value = "Hello") {
+output.innerHTML = "Hello, I am the gBrowser virtual assistant. How may I help you?";
+} else {
+ouput.innerHTML = "Do you need help with something?";
+}
+}
+</script>
+</body>
+</html>
+
