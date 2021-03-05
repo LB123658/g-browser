@@ -52,7 +52,7 @@ font-size: 20px;
 </div>
 
 <div id="game">
-<input type="text" placeholder="Enter a phrase..." id="a">
+<input type="text" placeholder="Enter your number" id="a">
 <button onclick="say()">Go</button>
 <p id="output"></p>
 </div>
@@ -61,15 +61,18 @@ font-size: 20px;
 function gameBot() {
 document.getElementById("game").style.visibility = "visible";
 document.getElementById("main").style.visibility = "hidden";
+alert("Click 1 for english, 2 for spanish");
 }
 function say() {
-var input = document.getElementById("a");
-var ouput = document.getElementById("a");
-if (input.value = "Hello") {
-output.innerHTML = "Hello, I am the gBrowser virtual assistant. How may I help you?";
-} else {
-ouput.innerHTML = "Do you need help with something?";
-}
+  var input = document.getElementById("a").value;
+  if (input < 2) {
+    var output = "Hello. I am the gBrowser virtual assistant. How can I help you?";
+    } else if (input > 1) {
+    var output ="Hola. ¿Como te puedo ayudar?";
+    } else {
+    var output ="How can I help you? Just ask a question below.";
+    }
+    document.getElementById("output").innerHTML = output;
 }
 </script>
 </body>
