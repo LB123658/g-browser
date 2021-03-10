@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Material+Icons"
+      rel="stylesheet">
+<link rel='icon' href='https://drive.google.com/thumbnail?id=1vlBV9onFWQLszILsmnmmpBsD7fcTT9qR' type='image/png'/ >
+      
+<style>
+#qArea {
+position: fixed;
+top: 0px;
+left: 0px;
+width: 100%;
+height: 50px;
+}
+#qareaLogo {
+position: absolute;
+top: 10px;
+height: 37px;
+left: 10px;
+cursor: pointer;
+}
+#qText {
+position: absolute;
+top: 10px;
+height: 30px;
+left: 70px;
+width: 500px;
+border: 1.8px solid #4285f4ff;
+border-radius: 5px 0px 0px 5px;
+font-size: 20px;
+color: grey;
+}
+#qText:hover {
+color: #4285f4ff;
+}
+#qStarter {
+position: absolute;
+top: 10px;
+height: 36px;
+left: 578px;
+border-radius: 0px 5px 5px 0px;
+border: 1.8px solid #4285f4ff;
+color: #4285f4ff;
+background: transparent;
+cursor: pointer;
+}
+#qStarter:hover {
+background-color: #4285f4ff;
+animation-name: go;
+  animation-duration: 0.9s;
+  animation-iteration-count: 1;
+  color: white;
+}
+@keyframes go {
+ 
+  0% {background-color: transparent;}
+  100%   {background-color: #4285F4;}
+
+}
+.result {
+width: 300px;
+border: none;
+background: transparent;
+color: #4285f4ff;
+height: 100px;
+font-size: 20px;
+cursor: pointer;
+text-align: left;
+}
+.result:hover {
+opacity: 0.7;
+text-decoration: UNDERLINE;
+}
+#first {
+position: absolute;
+top: 100px;
+left: 20px;
+}
+#second {
+position: absolute;
+top: 200px;
+left: 20px;
+}
+#third {
+position: absolute;
+top: 300px;
+left: 20px;
+}
+#fourth {
+position: absolute;
+top: 400px;
+left: 20px;
+}
+#fifth {
+position: absolute;
+top: 500px;
+left: 20px;
+}
+.variant {
+color: #4285f4ff;
+font-size: 15px;
+border: none;
+background: transparent;
+}
+.variant:hover {
+opacity: 0.8;
+cursor: pointer;
+}
+#webff {
+position: absolute;
+top: 60px;
+left: 70px;
+font-weight: bold;
+}
+#imagesff {
+position: absolute;
+top: 60px;
+left: 120px;
+}
+#videosff {
+position: absolute;
+top: 60px;
+left: 190px;
+}
+</style>
+</head>
+<body>
+
+<div id="qArea">
+<img src="https://drive.google.com/thumbnail?id=1vlBV9onFWQLszILsmnmmpBsD7fcTT9qR" id="qareaLogo" />
+<input type="text" id="qText" placeholder="Search gBrowser">
+<button id="qStarter" onclick="elSearch()"><span class="material-icons">
+search
+</span></button>
+</div>
+<a href="https://en.wikipedia.org/wiki/Special:Search?search=" id="firstA" target="_blank">
+<button class="result" id="first">Wikipedia</button></a>
+
+<a href="https://google.com/search/?q=" id="secondA" target="_blank">
+<button class="result" id="second">Google</button></a>
+
+<a href="https://.com" id="thirdA" target="_blank">
+<button class="result" id="third">Unknown site</button></a>
+
+
+<a href="https://www.youtube.com/results?search_query=" id="fourthA" target="_blank">
+<button class="result" id="fourth">YouTube</button></a>
+
+<a href="https://sites.google.com/view/=" id="fifthA" target="_blank">
+<button class="result" id="fifth">Google sites</button></a>
+
+<button class="variant" id="webff">Web</button>
+<a href="https://lb123658.github.io/Connect/photos.html" target="_blank">
+<button class="variant" id="imagesff">Images</button></a>
+<a href="https://sites.google.com/view/brainblast-videocenter/home" target="_blank">
+<button class="variant" id="videosff">Videos</button></a>
+
+<script>
+function elSearch() {
+var input = document.getElementById("qText");
+var first = document.getElementById("firstA");
+var second = document.getElementById("secondA");
+var third = document.getElementById("thirdA");
+var fourth = document.getElementById("fourthA");
+var fifth = document.getElementById("fifthA");
+first.href = "https://en.wikipedia.org/wiki/Special:Search?search=" + input.value;
+second.href = "https://google.com/search?q=" + input.value;
+third.href = "https://" + input.value + ".com";
+document.getElementById("third").innerHTML = "https://" + input.value + ".com";
+document.getElementById("first").innerHTML = "Wikipedia - " + input.value;
+document.getElementById("second").innerHTML = "Google - " + input.value;
+document.getElementById("fourth").innerHTML = "YouTube - " + input.value;
+fourth.href = "https://www.youtube.com/results?search_query=" + input.value;
+fifth.href = "https://sites.google.com/view/" + input.value;
+document.getElementById("fifth").innerHTML = "Google sites - " + input.value;
+}
+</script>
+
+</body>
+</html>
