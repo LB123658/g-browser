@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-      <title>Search with gBrowser</title>      
+      <title>Search with gBrowser</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="https://fonts.googleapis.com/css2?family=Material+Icons"
       rel="stylesheet">
@@ -69,6 +69,7 @@ height: 100px;
 font-size: 20px;
 cursor: pointer;
 text-align: left;
+visibility: hidden;
 }
 .result:hover {
 opacity: 0.7;
@@ -176,6 +177,11 @@ document.getElementById("fourth").innerHTML = "YouTube - " + input.value;
 fourth.href = "https://www.youtube.com/results?search_query=" + input.value;
 fifth.href = "https://sites.google.com/view/" + input.value;
 document.getElementById("fifth").innerHTML = "Google sites - " + input.value;
+document.getElementById("first").style.visibility = "visible";
+document.getElementById("second").style.visibility = "visible";
+document.getElementById("third").style.visibility = "visible";
+document.getElementById("fourth").style.visibility = "visible";
+document.getElementById("fifth").style.visibility = "visible";
 }
 </script>
 
