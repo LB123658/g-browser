@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,7 +14,9 @@ position: fixed;
 top: 0px;
 left: 0px;
 width: 100%;
-height: 50px;
+height: 90px;
+z-index: 1;
+background: white;
 }
 #qareaLogo {
 position: absolute;
@@ -126,6 +129,31 @@ position: absolute;
 top: 60px;
 left: 190px;
 }
+#vk {
+position: absolute;
+top: 600px;
+left: 20px;
+}
+#yandex {
+position: absolute;
+top: 700px;
+left: 20px;
+}
+#amazon {
+position: absolute;
+top: 800px;
+left: 20px;
+}
+#pinterest {
+position: absolute;
+top: 900px;
+left: 20px;
+}
+#site {
+position: absolute;
+top: 1000px;
+left: 20px;
+}
 </style>
 </head>
 <body>
@@ -136,6 +164,12 @@ left: 190px;
 <button id="qStarter" onclick="elSearch()"><span class="material-icons">
 search
 </span></button>
+
+<button class="variant" id="webff">Web</button>
+<a href="https://lb123658.github.io/Connect/photos.html" target="_blank">
+<button class="variant" id="imagesff">Images</button></a>
+<a href="https://sites.google.com/view/brainblast-videocenter/home" target="_blank">
+<button class="variant" id="videosff">Videos</button></a>
 </div>
 <a href="https://en.wikipedia.org/wiki/Special:Search?search=" id="firstA" target="_blank">
 <button class="result" id="first">Wikipedia</button></a>
@@ -150,15 +184,27 @@ search
 <a href="https://www.youtube.com/results?search_query=" id="fourthA" target="_blank">
 <button class="result" id="fourth">YouTube</button></a>
 
-<a href="https://sites.google.com/view/=" id="fifthA" target="_blank">
-<button class="result" id="fifth">Google sites</button></a>
+<a href="https://twitter.com/search?q=" id="fifthA" target="_blank">
+<button class="result" id="fifth">Twitter</button></a>
 
-<button class="variant" id="webff">Web</button>
-<a href="https://lb123658.github.io/Connect/photos.html" target="_blank">
-<button class="variant" id="imagesff">Images</button></a>
-<a href="https://sites.google.com/view/brainblast-videocenter/home" target="_blank">
-<button class="variant" id="videosff">Videos</button></a>
 
+<a href="https://twitter.com/search?q=" id="fifthA" target="_blank">
+<button class="result" id="fifth">Twitter</button></a>
+
+<a href="https://vk.com/search?c%5Bq%5D=" id="vkA" target="_blank">
+<button class="result" id="vk">В Контакте</button></a>
+
+<a href="https://yandex.com/search/?text=" id="yandexA" target="_blank">
+<button class="result" id="yandex">Yandex</button></a>
+
+<a href="https://www.amazon.com/s?k=" id="amazonA" target="_blank">
+<button class="result" id="amazon">Amazon</button></a>
+
+<a href="https://pinterest.com" id="pinterestA" target="_blank">
+<button class="result" id="pinterest">Pinterest</button></a>
+
+<a href="about:blank" id="siteA" target="_blank">
+<button class="result" id="site">Unknown site</button></a>
 <script>
 function elSearch() {
 var input = document.getElementById("qText");
@@ -167,21 +213,41 @@ var second = document.getElementById("secondA");
 var third = document.getElementById("thirdA");
 var fourth = document.getElementById("fourthA");
 var fifth = document.getElementById("fifthA");
+var vkontakte = document.getElementById("vkA");
 first.href = "https://en.wikipedia.org/wiki/Special:Search?search=" + input.value;
 second.href = "https://google.com/search?q=" + input.value;
 third.href = "https://" + input.value + ".com";
+vkontakte.href = "https://vk.com/search?c%5Bq%5D=" + input.value;
 document.getElementById("third").innerHTML = "https://" + input.value + ".com";
 document.getElementById("first").innerHTML = "Wikipedia - " + input.value;
 document.getElementById("second").innerHTML = "Google - " + input.value;
 document.getElementById("fourth").innerHTML = "YouTube - " + input.value;
 fourth.href = "https://www.youtube.com/results?search_query=" + input.value;
-fifth.href = "https://sites.google.com/view/" + input.value;
-document.getElementById("fifth").innerHTML = "Google sites - " + input.value;
+fifth.href = "https://twitter.com/search?q=" + input.value;
+document.getElementById("fifth").innerHTML = "Twitter - " + input.value;
+document.getElementById("vk").innerHTML = "В Контакте - " + input.value;
 document.getElementById("first").style.visibility = "visible";
 document.getElementById("second").style.visibility = "visible";
 document.getElementById("third").style.visibility = "visible";
 document.getElementById("fourth").style.visibility = "visible";
 document.getElementById("fifth").style.visibility = "visible";
+document.getElementById("vk").style.visibility = "visible";
+var yandex = document.getElementById("yandexA");
+yandex.href = "https://yandex.com/search/?text=" + input.value;
+document.getElementById("yandex").innerHTML = "Yandex - " + input.value;
+document.getElementById("yandex").style.visibility = "visible";
+var pinterest = document.getElementById("pinterestA");
+pinterest.href = "https://www.pinterest.com/search/pins/?q=" + input.value;
+document.getElementById("pinterest").innerHTML = "Pinterest - " + input.value;
+document.getElementById("pinterest").style.visibility = "visible";
+var amazon = document.getElementById("amazonA");
+amazon.href = "https://www.amazon.com/s?k=" + input.value;
+document.getElementById("amazon").innerHTML = "Amazon - " + input.value;
+document.getElementById("amazon").style.visibility = "visible";
+var site = document.getElementById("siteA");
+site.href = "https://" + input.value;
+document.getElementById("site").innerHTML = input.value;
+document.getElementById("site").style.visibility = "visible";
 }
 </script>
 
