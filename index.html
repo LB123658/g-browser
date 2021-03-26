@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -372,6 +373,63 @@ cursor: pointer;
 #appSelect:hover {
 color: lightgrey;
 }
+#helloDark {
+position: absolute;
+top: 0px;
+left: 0px;
+width: 100%;
+height: 80px;
+background: white;
+z-index: 2;
+visibility: hidden;
+}
+#darkContent {
+position: absolute;
+top: 10px;
+left: 15%;
+user-select: none;
+font-family: arial;
+color: grey;
+font-size: 20px;
+}
+#darkDefault {
+position: absolute;
+right: 15%;
+top: 10%;
+height: 60px;
+width: 160px;
+background: #4285F4;
+border-radius: 7px;
+border: none;
+cursor: pointer;
+color: white;
+font-size: 20px;
+}
+#darkDefault:hover {
+background: #699ef5;
+}
+#nonoDark:hover {
+color: #282828;
+text-decoration: underline;
+cursor: pointer;
+}
+#belowFooter {
+position: absolute;
+bottom: 1px;
+left: 0px;
+width: 100%;
+text-align: center;
+color: grey;
+font-family: arial;
+cursor: pointer;
+}
+.bigfoot {
+color: grey;
+text-decoration: none;
+}
+.bigfoot:hover {
+text-decoration: underline;
+}
 </style>
 </head>
 <body onload="getLocation()" id="body">
@@ -382,12 +440,12 @@ color: lightgrey;
 <p class="futura" id="title"><span class="blue">gB</span>row<span class="green">ser</span></p>
 
 <input type="submit" class="starter" value="<" onclick="theBackspace(); reFill()" id="back">
-<form action="https://www.google.com/url?" id="form" target="_blank">
-<input type="input" class="search" name="q"  placeholder=" gBrowser" id="demo">
+<form action="https://lb123658.github.io/g-browser/search" id="form" target="_blank">
+<input type="input" class="search" name="you_searched"  placeholder=" gBrowser" id="demo">
 <button class="enter" id="search" onclick="changeTitle()">Search</button>
 </form>
 
-<img src="https://drive.google.com/thumbnail?id=1OhY3hnfa5ZW5VAX3WYPyfft3Llx_qTDV" title="By URL" id="internetLogo">
+<img src="https://drive.google.com/thumbnail?id=1vlBV9onFWQLszILsmnmmpBsD7fcTT9qR" title="Search with gBrowser" id="internetLogo">
 
 <div id="extensionSection">
 <p id="extensionP">Search more websites with gBrowser extensions</p>
@@ -453,7 +511,7 @@ apps
 <p class="choice">Personal settings</p>
 <a href="https://lb123658.github.io/gBrowser/" target="_blank">   
    <button class="app">gBrowser account</button></a>
-<button class="app" onclick="dark()">Dark mode</button>
+<button class="app" onclick="dark(); setTimeout(promptDark, 1000);">Dark mode</button>
 <button class="app" onclick="light()">Light mode</button>
 <button class="app" onclick="hideApps()" id="appSet">Hide apps</button>
 <button class="app" id="extensionControls" onclick="hideExtensions()">Hide extensions</button>
@@ -461,8 +519,13 @@ apps
 <button class="app" onclick="hideSettings()">Close menu</button>
 </div>
 
+<div id="helloDark">
+<p id="darkContent">Like dark mode? Set as default. <span id="nonoDark" onclick="unpromptDark()">No thanks</span></p>
+<a href="https://lb123658.github.io/g-browser/dark" target="_blank">
+<button id="darkDefault">Set default</button></a>
+</div>
 
-
+<p id="belowFooter"><a href="https://lb123658.github.io/g-browser/about" class="bigfoot">About</a>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<a href="https://lb123658.github.io/g-browser/privacy" class="bigfoot">Privacy policy</a></p>
 <script>
 function theBackspace() {
 document.getElementById("demo").value = "";
@@ -754,6 +817,12 @@ document.getElementById("ecosia").style.color = "grey";
 document.getElementById("duckduckgo").style.color = "grey";
 document.getElementById("lycos").style.color = "grey";
 document.getElementById("url").style.color = "grey";
+}
+function promptDark() {
+document.getElementById("helloDark").style.visibility = ("visible");
+}
+function unpromptDark() {
+document.getElementById("helloDark").style.visibility = ("hidden");
 }
 </script>
 </body>
