@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -93,6 +92,10 @@ position: absolute;
 top: 300px;
 left: 20px;
 }
+#third:hover {
+color: red;
+opacity: 0.7;
+}
 #fourth {
 position: absolute;
 top: 400px;
@@ -154,6 +157,20 @@ position: absolute;
 top: 1000px;
 left: 20px;
 }
+#site:hover {
+color: red;
+opacity: 0.7;
+}
+#ebay {
+position: absolute;
+top: 1100px;
+left: 20px;
+}
+#yahoo {
+position: absolute;
+top: 1200px;
+left: 20px;
+}
 </style>
 </head>
 <body>
@@ -205,6 +222,12 @@ search
 
 <a href="about:blank" id="siteA" target="_blank">
 <button class="result" id="site">Unknown site</button></a>
+
+<a href="https://ebay.com" id="ebayA" target="_blank">
+<button class="result" id="ebay">Ebay</button></a>
+
+<a href="https://yahoo.com" id="yahooA" target="_blank">
+<button class="result" id="yahoo">Yahoo!</button></a>
 <script>
 function elSearch() {
 var input = document.getElementById("qText");
@@ -248,6 +271,14 @@ var site = document.getElementById("siteA");
 site.href = "https://" + input.value;
 document.getElementById("site").innerHTML = input.value;
 document.getElementById("site").style.visibility = "visible";
+var ebay = document.getElementById("ebayA");
+ebay.href = "https://www.ebay.com/sch/i.html?_from=R40&_trksid=p2540003.m570.l1313&_nkw=" + input.value;
+document.getElementById("ebay").innerHTML = "Ebay - " + input.value;
+document.getElementById("ebay").style.visibility = "visible";
+var yahoo = document.getElementById("yahooA");
+yahoo.href = "https://search.yahoo.com/search?p=" + input.value;
+document.getElementById("yahoo").innerHTML = input.value + " - Yahoo";
+document.getElementById("yahoo").style.visibility = "visible";
 }
 </script>
 
