@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -224,6 +225,30 @@ border-radius: 7px;
 background: #FFCC00;
 cursor: pointer;
 }
+
+#imageResults {
+visibility: hidden;
+}
+#iyandex {
+position: absolute;
+top: 100px;
+left: 20px;
+}
+#igoogle {
+position: absolute;
+top: 200px;
+left: 20px;
+}
+#ipinterest {
+position: absolute;
+top: 300px;
+left: 20px;
+}
+#igiphy {
+position: absolute;
+top: 400px;
+left: 20px;
+}
 </style>
 </head>
 <body>
@@ -236,18 +261,16 @@ cursor: pointer;
 search
 </span></button>
 
-<button class="variant" id="webff">Web</button>
-<a href="https://lb123658.github.io/Connect/photos.html" target="_blank">
-<button class="variant" id="imagesff">Images</button></a>
-<a href="https://sites.google.com/view/brainblast-videocenter/home" target="_blank">
-<button class="variant" id="videosff">Videos</button></a>
+<button class="variant" id="webff" onclick="showWeb()">Web</button>
+<button class="variant" id="imagesff" onclick="showImages()">Images</button>
+<button class="variant" id="videosff" onclick="showVideos()">Videos</button>
 </div>
 <div id="popUp">
 <p id="popInfo"><span id="alert">New update:</span><br><br>Results that have may not be completely safe are marked in red.</p>
 <button id="ru" onclick="unPop()">Got it</button>
 </div>
 
-
+<div id="searchResults">
 <a href="https://en.wikipedia.org/wiki/Special:Search?search=" id="firstA" target="_blank">
 <button class="result" id="first">Wikipedia</button></a>
 
@@ -288,6 +311,21 @@ search
 
 <a href="https://yahoo.com" id="yahooA" target="_blank">
 <button class="result" id="yahoo">Yahoo!</button></a>
+</div>
+
+<div id="imageResults">
+<a href="https://yandex.com/images" id="iyandexA" target="_blank">
+<button class="result" id="iyandex">Yandex Images</button></a>
+
+<a href="https://google.com/images" id="igoogleA" target="_blank">
+<button class="result" id="igoogle">Google Images</button></a>
+
+<a href="https://pinterest.com/" id="ipinterestA" target="_blank">
+<button class="result" id="ipinterest">Pinterest</button></a>
+
+<a href="https://giphy.com/" id="igiphyA" target="_blank">
+<button class="result" id="igiphy">Giphy</button></a>
+</div>
 <script>
 function elSearch() {
 var input = document.getElementById("qText");
@@ -339,9 +377,71 @@ var yahoo = document.getElementById("yahooA");
 yahoo.href = "https://search.yahoo.com/search?p=" + input.value;
 document.getElementById("yahoo").innerHTML = input.value + " - Yahoo";
 document.getElementById("yahoo").style.visibility = "visible";
+//image section
+var iyandex = document.getElementById("iyandexA");
+iyandex.href = "https://yandex.com/images/search?text=" + input.value;
+document.getElementById("iyandex").innerHTML = "Yandex images - " + input.value;
+var igoogle = document.getElementById("igoogleA");
+igoogle.href = "https://www.google.com/search?source=lnms&tbm=isch&sa=X&ved=2ahUKEwjj0NijwtDvAhULQ80KHbjiAMoQ_AUoAnoECAEQBA&biw=1262&bih=796&q=" + input.value;
+document.getElementById("igoogle").innerHTML = "Google images - " + input.value;
+var ipinterest = document.getElementById("ipinterestA");
+ipinterest.href = "https://www.pinterest.com/search/pins/?q=" + input.value;
+document.getElementById("ipinterest").innerHTML = "Pinterest - " + input.value;
+var igiphy = document.getElementById("igiphyA");
+igiphy.href = "https://giphy.com/search/" + input.value;
+document.getElementById("igiphy").innerHTML = "Giphy - " + input.value;
 }
 function unPop() {
 document.getElementById("popUp").style.visibility = "hidden";
+}
+function showImages() {
+//image results
+document.getElementById("iyandex").style.visibility = "visible";
+document.getElementById("igoogle").style.visibility = "visible";
+document.getElementById("ipinterest").style.visibility = "visible";
+document.getElementById("igiphy").style.visibility = "visible";
+//normal results
+document.getElementById("first").style.visibility = "hidden";
+document.getElementById("second").style.visibility = "hidden";
+document.getElementById("third").style.visibility = "hidden";
+document.getElementById("fourth").style.visibility = "hidden";
+document.getElementById("fifth").style.visibility = "hidden";
+document.getElementById("vk").style.visibility = "hidden";
+document.getElementById("yandex").style.visibility = "hidden";
+document.getElementById("amazon").style.visibility = "hidden";
+document.getElementById("pinterest").style.visibility = "hidden";
+document.getElementById("site").style.visibility = "hidden";
+document.getElementById("ebay").style.visibility = "hidden";
+document.getElementById("yahoo").style.visibility = "hidden";
+//tabs at the top
+document.getElementById("webff").style.fontWeight = "normal";
+document.getElementById("imagesff").style.fontWeight = "bold";
+document.getElementById("videosff").style.fontWeight = "normal";
+}
+
+function showWeb() {
+//image results
+document.getElementById("iyandex").style.visibility = "hidden";
+document.getElementById("igoogle").style.visibility = "hidden";
+document.getElementById("ipinterest").style.visibility = "hidden";
+document.getElementById("igiphy").style.visibility = "hidden";
+//normal results
+document.getElementById("first").style.visibility = "visible";
+document.getElementById("second").style.visibility = "visible";
+document.getElementById("third").style.visibility = "visible";
+document.getElementById("fourth").style.visibility = "visible";
+document.getElementById("fifth").style.visibility = "visible";
+document.getElementById("vk").style.visibility = "visible";
+document.getElementById("yandex").style.visibility = "visible";
+document.getElementById("amazon").style.visibility = "visible";
+document.getElementById("pinterest").style.visibility = "visible";
+document.getElementById("site").style.visibility = "visible";
+document.getElementById("ebay").style.visibility = "visible";
+document.getElementById("yahoo").style.visibility = "visible";
+//tabs at the top
+document.getElementById("webff").style.fontWeight = "bold";
+document.getElementById("imagesff").style.fontWeight = "normal";
+document.getElementById("videosff").style.fontWeight = "normal";
 }
 </script>
 
