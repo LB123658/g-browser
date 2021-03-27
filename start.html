@@ -1,1 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title id="topName">gBrowser - making online easy</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel='icon' href='https://drive.google.com/thumbnail?id=1vlBV9onFWQLszILsmnmmpBsD7fcTT9qR' type='image/png'/ >
+   <meta name="Description" content="Search the web all from one place." />
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+<style>
+body {
+  background: #282828;
+}
+#img {
+position: absolute;
+top: 0px;
+left: 0px;
+width: 100%;
+height: 90%;
+}
+#title {
+position: absolute;
+top: 10px;
+left: 20%;
+width: 60%;
+text-align: center;
+font-family: futura;
+color: #282828;
+font-size: 80px;
+user-select: none;
+cursor: default;
+}
+.block {
+height: 50px;
+width: 150px;
+border: 1px solid white;
+border-radius: 10px;
+background: white;
+color: #282828;
+font-size: 20px;
+}
+.block:hover {
+background: transparent;
+color: white;
+}
+#left {
+position: absolute;
+bottom: 45%;
+right: 51%;
+}
+#right {
+position: absolute;
+bottom: 45%;
+left: 51%;
+}
+#myVideo {
+position: absolute;
+left: 10%;
+width: 80%;
+bottom: -20%;
+z-index: -1;
+height: 80%
+}
+</style>
+</head>
+<body>
+<img src="https://lb123658.github.io/g-browser/colors.png" id="img" />
+<p id="title">gBrowser</p>
+<a href="https://lb123658.github.io/g-browser/">
+<button class="block" id="left">Get started</button></a>
+<a href="https://lb123658.github.io/g-browser/about">
+<button class="block" id="right">Learn more</button></a>
+<video  muted loop autoplay id="myVideo">
+  <source src="https://lb123658.github.io/g-browser/spinner.mp4" type="video/mp4">
+</video>
+<script>
+var vid = document.getElementById("myVideo");
+vid.playbackRate = 0.5;
+</script>
+</body>
+</html>
+
 
