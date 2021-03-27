@@ -72,10 +72,12 @@ font-size: 20px;
 cursor: pointer;
 text-align: left;
 visibility: hidden;
+border-radius: 10px;
 }
 .result:hover {
 opacity: 0.7;
 text-decoration: UNDERLINE;
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 #first {
 position: absolute;
@@ -171,6 +173,57 @@ position: absolute;
 top: 1200px;
 left: 20px;
 }
+#infoCenter {
+position: fixed;
+top: 10px;
+right: 10px;
+color: #4285f4ff;
+font-weight: bold;
+border: none;
+height: 37px;
+background: transparent;
+border-radius: 18.5px;
+cursor: pointer;
+width: 50px;
+}
+#infoCenter:hover {
+background: #f0f0f0;
+}
+#popUp {
+position: fixed;
+top: 150px;
+right: 10px;
+height: 160px;
+width: 400px;
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+background: white;
+border-radius: 10px;
+font-family: futura;
+color: grey;
+user-select: none;
+z-index: 1;
+}
+#popInfo {
+position: absolute;
+top: 10px;
+left: 10px;
+}
+#alert {
+color: black;
+}
+#ru {
+position: absolute;
+bottom: 20px;
+right: 20px;
+height: 35px;
+width: 80px;
+font-size: 20px;
+color: black;
+border: none;
+border-radius: 7px;
+background: #FFCC00;
+cursor: pointer;
+}
 </style>
 </head>
 <body>
@@ -189,6 +242,12 @@ search
 <a href="https://sites.google.com/view/brainblast-videocenter/home" target="_blank">
 <button class="variant" id="videosff">Videos</button></a>
 </div>
+<div id="popUp">
+<p id="popInfo"><span id="alert">New update:</span><br><br>Results that have may not be completely safe are marked in red.</p>
+<button id="ru" onclick="unPop()">Got it</button>
+</div>
+
+
 <a href="https://en.wikipedia.org/wiki/Special:Search?search=" id="firstA" target="_blank">
 <button class="result" id="first">Wikipedia</button></a>
 
@@ -280,6 +339,9 @@ var yahoo = document.getElementById("yahooA");
 yahoo.href = "https://search.yahoo.com/search?p=" + input.value;
 document.getElementById("yahoo").innerHTML = input.value + " - Yahoo";
 document.getElementById("yahoo").style.visibility = "visible";
+}
+function unPop() {
+document.getElementById("popUp").style.visibility = "hidden";
 }
 </script>
 
