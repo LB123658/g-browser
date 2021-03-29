@@ -1,0 +1,253 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title id="t">Browse in darkness</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Icons"
+      rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=New+Tegomin&display=swap" rel="stylesheet">  
+<link rel='icon' href='https://lb123658.github.io/cebolla/favicon.png' type='image/png'/>
+
+<style>
+body {
+  background-color: white;
+  overflow: hidden;
+}
+
+#p {
+  font-family: verdana;
+  font-size: 40px;
+  position: absolute;
+  top: 150px;
+  left: 20%;
+  width: 60%;
+  text-align: center;
+  user-select: none;
+}
+* {
+  font-family: verdana;
+}
+#foto {
+width: 200px;
+}
+#search {
+text-align: left;
+height: 30px;
+border: 2px solid #FFCC00;
+color: grey;
+background: transparent;
+position: absolute;
+top: 300px;
+left: 20%;
+width: 50%;
+opacity: 0.7;
+font-size: 18px;
+user-select: none;
+border-radius: 5px 0px 0px 5px;
+}
+#search:hover {
+opacity: 1;
+}
+#go {
+position: absolute;
+top: 300px;
+right: 20%;
+width: 9%;
+height: 35.5px;
+background: #FFCC00;
+color: black;
+opacity: 0.7;
+border: none;
+cursor: pointer;
+user-select: none;
+border-radius: 0px 5px 5px 0px;
+}
+#go:hover {
+opacity: 1;
+}
+#pre {
+visibility: visible;
+}
+#topLogo {
+position: absolute;
+top: 10px;
+left: 10px;
+width: 50px;
+height: 50px;
+cursor: pointer;
+}
+#query {
+position: absolute;
+top: 1px;
+left: 80px;
+color: #4285F4;
+font-size: 20px;
+cursor: default;
+user-select: none;
+}
+.link {
+color: #4285F4;
+height: 100px;
+width: 90%;
+font-size: 20px;
+cursor: pointer;
+border: none;
+background: white;
+text-align: left;
+border-radius: 10px;
+}
+.link:hover {
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+text-decoration: underline;
+}
+#duck {
+position: absolute;
+top: 100px;
+left: 5%;
+}
+#startpage {
+position: absolute;
+top: 200px;
+left: 5%;
+}
+#qwant {
+position: absolute;
+top: 300px;
+left: 5%;
+}
+#ecosia {
+position: absolute;
+top: 400px;
+left: 5%;
+}
+#com {
+position: absolute;
+top: 500px;
+left: 5%;
+}
+#ru {
+position: absolute;
+top: 600px;
+left: 5%;
+}
+#site {
+position: absolute;
+top: 700px;
+left: 5%;
+}
+#de {
+position: absolute;
+top: 800px;
+left: 5%;
+}
+#cn {
+position: absolute;
+top: 900px;
+left: 5%;
+}
+#uk {
+position: absolute;
+top: 1000px;
+left: 5%;
+}
+#results {
+visibility: hidden;
+}
+#gg {
+background: #FFCC00;
+border-radius: 10px;
+width: 40px;
+}
+</style>
+</head>
+<body id="body">
+<div id="pre">
+<p id="p">
+<span id="gg">г</span>Browser</p>
+<input type="text" id="search" placeholder="Найти">
+<button id="go" onclick="myFunction()"><span class="material-icons">
+search
+</span></button>
+</div>
+
+<div id="results">
+<img src="https://drive.google.com/thumbnail?id=1vlBV9onFWQLszILsmnmmpBsD7fcTT9qR" id="topLogo" onclick="location.reload()"/>
+<p id="query">Browse in darkness.</p>
+<a href="https://duckduckgo.com" target="_blank" id="duckA">
+<button class="link" id="duck">DuckDuckGo</button></a>
+
+<a href="https://startpage.com" target="_blank" id="startpageA">
+<button class="link" id="startpage">Startpage</button></a>
+
+<a href="https://qwant.com" target="_blank" id="qwantA">
+<button class="link" id="qwant">Qwant</button></a>
+
+<a href="https://ecosia.org" target="_blank" id="ecosiaA">
+<button class="link" id="ecosia">Ecosia</button></a>
+
+<a href="https://www.verisign.com/en_US/domain-names/com-domain-names/index.xhtml" target="_blank" id="comA">
+<button class="link" id="com">.com registry</button></a>
+
+<a href="https://cctld.ru/en/" target="_blank" id="ruA">
+<button class="link" id="ru">.ru registry</button></a>
+
+<a href="#" target="_blank" id="siteA">
+<button class="link" id="site">Browse in darkness</button></a>
+
+<a href="https://www.denic.de/en/" target="_blank" id="deA">
+<button class="link" id="de">.de registry</button></a>
+
+<a href="http://www.cnnic.cn/" target="_blank" id="cnA">
+<button class="link" id="cn">.cn registry</button></a>
+
+<a href="https://www.nominet.uk/" target="_blank" id="ukA">
+<button class="link" id="uk">.co.uk registry</button></a>
+</div>
+
+
+<script>
+function myFunction() {
+var input = document.getElementById("search");
+document.getElementById("pre").style.visibility = "hidden";
+document.getElementById("results").style.visibility = "visible";
+//search results
+document.getElementById("query").innerHTML = input.value;
+//duckduckgo link
+document.getElementById("duck").innerHTML = input.value + " at DuckDuckGo";
+document.getElementById("duckA").href = "https://duckduckgo.com/?q=" + input.value;
+//startpage link
+document.getElementById("startpage").innerHTML = "Startpage - " + input.value;
+document.getElementById("startpageA").href = "https://startpage.com/sp/search?q=" + input.value;
+//qwant link
+document.getElementById("qwant").innerHTML = "Qwant - " + input.value;
+document.getElementById("qwantA").href = "https://www.qwant.com/?q=" + input.value;
+//ecosia link
+document.getElementById("ecosia").innerHTML = "Ecosia - " + input.value;
+document.getElementById("ecosiaA").href = "https://www.ecosia.org/search?q=" + input.value;
+//com link
+document.getElementById("com").innerHTML = input.value + ".com";
+document.getElementById("comA").href = "https://" + input.value + ".com";
+//ru link
+document.getElementById("ru").innerHTML = input.value + ".ru";
+document.getElementById("ruA").href = "https://" + input.value + ".ru";
+//https link
+document.getElementById("site").innerHTML = input.value + " - Google";
+document.getElementById("siteA").href = "https://www.google.com/search?q=" + input.value + "&hl=ru";
+//de link
+document.getElementById("de").innerHTML = "Yandex - " + input.value;
+document.getElementById("deA").href = "https://yandex.ru/search/?text=" + input.value + "&lr=21268";
+//cn link
+document.getElementById("cn").innerHTML = input.value + " - официальный сайт";
+document.getElementById("cnA").href = "https://" + input.value;
+//uk link
+document.getElementById("uk").innerHTML = input.value + ".kz";
+document.getElementById("ukA").href = "https://" + input.value + ".kz";
+//title change
+document.getElementById("t").innerHTML = "Search results";
+//scrolling allowed
+document.getElementById("body").style.overflow = "visible";
+}
+</script>
+</body>
+</html>
