@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Apps - gBrowser</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+<link rel='icon' href='https://drive.google.com/thumbnail?id=1vlBV9onFWQLszILsmnmmpBsD7fcTT9qR' type='image/png'/ >
+<style>
+* {
+font-family: 'Roboto', sans-serif;
+}
+#home {
+position: absolute;
+top: 5px;
+left: 5px;
+height: 50px;
+width: 200px;
+font-size: 28px;
+font-weight: bold;
+cursor: pointer;
+border: none;
+background: transparent;
+color: grey;
+}
+#blue {
+color: #4285f4ff;
+}
+#green {
+color: #8acf26ff;
+}
+#red {
+color: #DB4437;
+}
+#grey {
+font-size: 23px;
+}
+</style>
+</head>
+<body>
+<button id="home" onclick="location.reload()" title="Apps homepage" onmouseover="hover()" onmouseout="nonhover()"><span id="blue">gB</span><span id="red">row</span><span id="green">ser</span> <span id="grey">Apps</span></button>
+
+<script>
+function hover() {
+document.getElementById("grey").style.textDecoration = "underline";
+}
+function nonhover() {
+document.getElementById("grey").style.textDecoration = "none";
+}
+</script>
+</body>
+</html>
