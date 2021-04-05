@@ -19,8 +19,9 @@ width: 200px;
 font-size: 28px;
 cursor: pointer;
 border: none;
-background: transparent;
+background: white;
 color: grey;
+z-index: 3;
 }
 #blue {
 color: #4285f4ff;
@@ -124,6 +125,42 @@ background: #d7e1fc;
 width: 180px;
 max-height: 180px;
 }
+#shareLink {
+position: absolute;
+top: 20px;
+left: 20px;
+width: 50px;
+z-index: -1;
+}
+#share {
+position: absolute;
+top: 5px;
+right: 10px;
+border: 1px solid #d7e1fc;
+width: 70px;
+background: #d7e1fc;
+}
+#share:hover {
+width: 100px;
+animation-name: example;
+  animation-duration: 0.9s;
+  animation-iteration-count: 1;
+}
+@keyframes example {
+ 
+  0% {width: 70px;}
+  100%   {width: 100px;}
+
+}
+#whiteBlock {
+position: absolute;
+z-index: 2;
+background: white;
+top: 0px;
+height: 59px;
+width: 110px;
+right: 0px;
+}
 </style>
 </head>
 <body>
@@ -135,6 +172,13 @@ max-height: 180px;
 <button class="topNav" id="create">Create</button>
 <button class="topNav" id="developer">Developer</button>
 <button class="topNav" id="privacy">Privacy</button>
+
+<div id="whiteBlock">
+<a href="https://lb123658.github.io/Share-on-social-media/" target="_blank">
+<button class="topNav" id="share" onclick="share()">Share</button></a>
+</div>
+
+<input type="text" id="shareLink" value="https://lb123658.github.io/a/b">
 <button id="line"></button>
 </div>
 
@@ -177,6 +221,13 @@ document.getElementById("grey").style.textDecoration = "underline";
 function nonhover() {
 document.getElementById("grey").style.textDecoration = "none";
 }
+function share() {
+  var copyText = document.getElementById("shareLink");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999)
+  document.execCommand("copy");
+  alert("Copied sharing link " + copyText.value);
+}  
 </script>
 </body>
 </html>
