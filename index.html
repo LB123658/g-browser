@@ -823,6 +823,9 @@ document.getElementById("helloDark").style.visibility = ("visible");
 function unpromptDark() {
 document.getElementById("helloDark").style.visibility = ("hidden");
 }
+   if (window.location.search == "?mode=dark") {
+      document.getElementById("body").style.background = "#282828";
+   }
 </script>
 </body>
 </html>
