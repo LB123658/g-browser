@@ -326,6 +326,10 @@ search
 <button class="result" id="igiphy">Giphy</button></a>
 </div>
 <script>
+//searching function 
+document.getElementById("qText").value = location.search.split("=")[1];
+
+//actual results
 function elSearch() {
 var input = document.getElementById("qText");
 var first = document.getElementById("firstA");
@@ -442,7 +446,6 @@ document.getElementById("webff").style.fontWeight = "bold";
 document.getElementById("imagesff").style.fontWeight = "normal";
 document.getElementById("videosff").style.fontWeight = "normal";
 }
-document.getElementById("input").value = location.search.split("=")[1];
 </script>
 
 </body>
