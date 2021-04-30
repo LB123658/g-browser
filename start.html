@@ -107,7 +107,9 @@ color:
 <script>
 if (window.location.search == "?mode=dark") {
 document.getElementById("body").style.background = "#282828";
-} 
+} else if (window.location.search == "?mode=grey") {
+   document.getElementById("body").style.background = "grey";
+}
 function hover() {
 document.getElementById("suggestion").style.visibility = "visible";
 }
