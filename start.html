@@ -107,8 +107,9 @@ color:
 <script>
 if (window.location.search == "?mode=dark") {
 document.getElementById("body").style.background = "#282828";
-} else if (window.location.search == "?mode=grey") {
-   document.getElementById("body").style.background = "grey";
+} else if (window.location.search == "?l=es") {
+   document.getElementById("t").innerHTML = "gBrowser - buscar en el internet";
+   document.getElementById("input").placeholder = "Buscar..";
 }
 function hover() {
 document.getElementById("suggestion").style.visibility = "visible";
