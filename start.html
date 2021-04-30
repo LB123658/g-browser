@@ -4,9 +4,8 @@
 <title id="t">gBrowser - search the web</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel='icon' href='https://drive.google.com/thumbnail?id=1vlBV9onFWQLszILsmnmmpBsD7fcTT9qR' type='image/png'/ >
-   <meta name="Description" content="Search the web all from one place." />
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
+<meta name="Description" content="Search the web all from one place." />
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <style>
 .futura {
 font-family: futura;
@@ -112,28 +111,50 @@ cursor: pointer;
 </div>
 <a href="settings">
 <button class="settings" id="set"><span class="material-icons">settings</span></button></a>
-<a href="https://lb123658.github.io/g-browser/start?mode=light">
+<a href="https://lb123658.github.io/g-browser/start?mode=light" id="l">
 <button class="settings" id="light"><span class="material-icons">light_mode</span></button></a>
-<a href="https://lb123658.github.io/g-browser/start?mode=dark">
+<a href="https://lb123658.github.io/g-browser/start?mode=dark" id="d">
 <button class="settings" id="dark"><span class="material-icons">dark_mode</span></button></a>
 <script>
+var l = document.getElementById("l");
+var d = document.getElementById("d");
 if (window.location.search == "?mode=dark") {
-document.getElementById("body").style.background = "#282828";
+   document.getElementById("body").style.background = "#282828";
 } else if (location.search.split("&")[0] == "?l=es") {
    document.getElementById("t").innerHTML = "gBrowser - buscar en el internet";
    document.getElementById("input").placeholder = "Buscar...";
-} else if (window.location.search == "?l=ru") {
+   l.href = "https://lb123658.github.io/g-browser/start?l=es";
+   d.href = "https://lb123658.github.io/g-browser/start?l=esdark";
+} else if (location.search.split("&")[0] == "?l=ru") {
    document.getElementById("t").innerHTML = "gBrowser - поиск в интернете";
    document.getElementById("input").placeholder = "Поиск...";
-} else if (window.location.search == "?l=pl") {
+   l.href = "https://lb123658.github.io/g-browser/start?l=ru";
+   d.href = "https://lb123658.github.io/g-browser/start?l=rudark";
+} else if (location.search.split("&")[0] == "?l=pl") {
    document.getElementById("t").innerHTML = "gBrowser - szukaj w internecie";
    document.getElementById("input").placeholder = "Szukaj...";
+   l.href = "https://lb123658.github.io/g-browser/start?l=pl";
+   d.href = "https://lb123658.github.io/g-browser/start?l=pldark";
 } else if (location.search.split("&")[1] == "mode=dark") {              
    document.getElementById("body").style.background = "#282828";
-} else if (window.location.search == "?l=esdark") {
+} else if (location.search.split("&")[0] == "?l=esdark") {
    document.getElementById("body").style.background = "#282828";
    document.getElementById("t").innerHTML = "gBrowser - buscar en el internet";
    document.getElementById("input").placeholder = "Buscar...";
+   l.href = "https://lb123658.github.io/g-browser/start?l=es";
+   d.href = "https://lb123658.github.io/g-browser/start?l=esdark";
+} else if (location.search.split("&")[0] == "?l=pldark") {
+   document.getElementById("body").style.background = "#282828";
+   document.getElementById("t").innerHTML = "gBrowser - szukaj w internecie";
+   document.getElementById("input").placeholder = "Szukaj...";
+   l.href = "https://lb123658.github.io/g-browser/start?l=pl";
+   d.href = "https://lb123658.github.io/g-browser/start?l=pldark";
+} else if (location.search.split("&")[0] == "?l=rudark") {
+   document.getElementById("body").style.background = "#282828";
+   document.getElementById("t").innerHTML = "gBrowser - поиск в интернете";
+   document.getElementById("input").placeholder = "Поиск...";
+   l.href = "https://lb123658.github.io/g-browser/start?l=ru";
+   d.href = "https://lb123658.github.io/g-browser/start?l=rudark";
 }
 </script>
 </body>
