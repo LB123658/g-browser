@@ -109,8 +109,15 @@ if (window.location.search == "?mode=dark") {
 document.getElementById("body").style.background = "#282828";
 } else if (window.location.search == "?l=es") {
    document.getElementById("t").innerHTML = "gBrowser - buscar en el internet";
-   document.getElementById("input").placeholder = "Buscar..";
+   document.getElementById("input").placeholder = "Buscar...";
+} else if (window.location.search == "?l=ru") {
+   document.getElementById("t").innerHTML = "gBrowser - поиск б интернете";
+   document.getElementById("input").placeholder = "Поиск...";
+} else if (window.location.search == "?l=pl") {
+   document.getElementById("t").innerHTML = "gBrowser - szukaj w internecie";
+   document.getElementById("input").placeholder = "Szukaj...";
 }
+                           
 function hover() {
 document.getElementById("suggestion").style.visibility = "visible";
 }
