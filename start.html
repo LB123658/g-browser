@@ -97,6 +97,39 @@ color: grey;
 border: none;
 cursor: pointer;
 }
+#search-div {
+position: absolute;
+top: 50px;
+left: 20px;
+width: 120px;
+height: 180px;
+border-radius: 6px;
+border: 1px solid lightgrey;
+visibility: hidden;
+}
+.site {
+height: 30px;
+width: 120px;
+font-size: 18px;
+border: none;
+border: none;
+border-radius: 6px;
+background: transparent;
+text-align: left;
+color: grey;
+}
+.site:hover {
+background: lightgrey;
+cursor: pointer;
+}
+#cancel {
+border: 1px solid #db4437;
+color: #db4437;
+}
+#cancel:hover {
+color: white;
+background: #db4437;
+}
 </style>
 <body id="body">
 <p id="logo" class="futura"><span class="blue">gB</span>row<span class="green">ser</span></p>
@@ -115,6 +148,23 @@ cursor: pointer;
 <button class="settings" id="light"><span class="material-icons">light_mode</span></button></a>
 <a href="https://lb123658.github.io/g-browser/start?mode=dark" id="d">
 <button class="settings" id="dark"><span class="material-icons">dark_mode</span></button></a>
+
+<!-- english only other search engines -->
+<button class="settings" id="engine" title="Search engine settings" onclick="show()"><span class="material-icons">manage_search</span></button>
+<div id="search-div">
+<a href="https://lb123658.github.io/g-browser/start?web=duckduckgo">
+<button class="site">DuckDuckGo</button></a>
+<a href="https://lb123658.github.io/g-browser/start?web=ecosia">
+<button class="site">Ecosia</button></a>
+<a href="https://lb123658.github.io/g-browser/start?web=qwant">
+<button class="site">Qwant</button></a>
+<a href="https://lb123658.github.io/g-browser/start?web=baidu">
+<button class="site">Baidu</button></a>
+<a href="https://lb123658.github.io/g-browser/start?web=yandex">
+<button class="site">Yandex</button></a>
+<button class="site" id="cancel" onclick="hide()">Close</button>
+</div>
+
 <script>
 var l = document.getElementById("l");
 var d = document.getElementById("d");
@@ -125,16 +175,19 @@ if (window.location.search == "?mode=dark") {
    document.getElementById("input").placeholder = "Buscar...";
    l.href = "https://lb123658.github.io/g-browser/start?l=es";
    d.href = "https://lb123658.github.io/g-browser/start?l=esdark";
+   document.getElementById("engine").style.visibility = "hidden";
 } else if (location.search.split("&")[0] == "?l=ru") {
    document.getElementById("t").innerHTML = "gBrowser - поиск в интернете";
    document.getElementById("input").placeholder = "Поиск...";
    l.href = "https://lb123658.github.io/g-browser/start?l=ru";
    d.href = "https://lb123658.github.io/g-browser/start?l=rudark";
+   document.getElementById("engine").style.visibility = "hidden";
 } else if (location.search.split("&")[0] == "?l=pl") {
    document.getElementById("t").innerHTML = "gBrowser - szukaj w internecie";
    document.getElementById("input").placeholder = "Szukaj...";
    l.href = "https://lb123658.github.io/g-browser/start?l=pl";
    d.href = "https://lb123658.github.io/g-browser/start?l=pldark";
+   document.getElementById("engine").style.visibility = "hidden";
 } else if (location.search.split("&")[1] == "mode=dark") {              
    document.getElementById("body").style.background = "#282828";
 } else if (location.search.split("&")[0] == "?l=esdark") {
@@ -143,18 +196,48 @@ if (window.location.search == "?mode=dark") {
    document.getElementById("input").placeholder = "Buscar...";
    l.href = "https://lb123658.github.io/g-browser/start?l=es";
    d.href = "https://lb123658.github.io/g-browser/start?l=esdark";
+   document.getElementById("engine").style.visibility = "hidden";
 } else if (location.search.split("&")[0] == "?l=pldark") {
    document.getElementById("body").style.background = "#282828";
    document.getElementById("t").innerHTML = "gBrowser - szukaj w internecie";
    document.getElementById("input").placeholder = "Szukaj...";
    l.href = "https://lb123658.github.io/g-browser/start?l=pl";
    d.href = "https://lb123658.github.io/g-browser/start?l=pldark";
+   document.getElementById("engine").style.visibility = "hidden";
 } else if (location.search.split("&")[0] == "?l=rudark") {
    document.getElementById("body").style.background = "#282828";
    document.getElementById("t").innerHTML = "gBrowser - поиск в интернете";
    document.getElementById("input").placeholder = "Поиск...";
    l.href = "https://lb123658.github.io/g-browser/start?l=ru";
    d.href = "https://lb123658.github.io/g-browser/start?l=rudark";
+   document.getElementById("engine").style.visibility = "hidden";
+} else if (window.location.search == "?web=duckduckgo") {
+   document.getElementById("form").action = "https://duckduckgo.com/";
+   document.getElementById("input").name = "q";
+   document.getElementById("input").placeholder = "Search DuckDuckGo...";
+} else if (window.location.search == "?web=ecosia") {
+   document.getElementById("form").action = "https://ecosia.org/search";
+   document.getElementById("input").name = "q";
+   document.getElementById("input").placeholder = "Search Ecosia...";
+} else if (window.location.search == "?web=qwant") {
+   document.getElementById("form").action = "https://www.qwant.com/search";
+   document.getElementById("input").name = "q";
+   document.getElementById("input").placeholder = "Search Qwant...";
+} else if (window.location.search == "?web=baidu") {
+   document.getElementById("form").action = "https://www.baidu.com/s";
+   document.getElementById("input").name = "wd";
+   document.getElementById("input").placeholder = "Search Baidu...";
+} else if (window.location.search == "?web=yandex") {
+   document.getElementById("form").action = "https://yandex.com/search/";
+   document.getElementById("input").name = "text";
+   document.getElementById("input").placeholder = "Search Yandex...";
+}
+
+function show() {
+document.getElementById("search-div").style.visibility = "visible";
+}
+function hide() {
+document.getElementById("search-div").style.visibility = "hidden";
 }
 </script>
 </body>
