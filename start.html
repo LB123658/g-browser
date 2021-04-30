@@ -107,16 +107,18 @@ color:
 <script>
 if (window.location.search == "?mode=dark") {
       document.getElementById("body").style.background = "#282828";
-} if (window.location.search == "?l=es" {
-document.getElementById("t").innerHTML = "gBrowser - buscar en el internet";
-document.getElementById("input").placeholder = "Buscar...";
-} if (window.location.search == "?l=ru" {
-document.getElementById("t").innerHTML = "gBrowser - поиск в инернете";
-document.getElementById("input").placeholder = "поиск...";
-} if (window.location.search == "?l=pl" {
-document.getElementById("t").innerHTML = "gBrowser - szukaj w internecie";
-document.getElementById("input").placeholder = "Szukaj...";
-} 
+} elseif (window.location.search == "?l=es" {
+     document.getElementById("t").innerHTML = "gBrowser - buscar en el internet";
+     document.getElementById("input").placeholder = "Buscar...";
+} elseif (window.location.search == "?l=ru" {
+     document.getElementById("t").innerHTML = "gBrowser - поиск в инернете";
+     document.getElementById("input").placeholder = "поиск...";
+} elseif (window.location.search == "?l=pl" {
+     document.getElementById("t").innerHTML = "gBrowser - szukaj w internecie";
+     document.getElementById("input").placeholder = "Szukaj...";
+} else {
+   ;
+}
 function hover() {
 document.getElementById("suggestion").style.visibility = "visible";
 }
