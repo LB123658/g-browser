@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title id="t">gBrowser settings</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel='icon' href='https://drive.google.com/thumbnail?id=1vlBV9onFWQLszILsmnmmpBsD7fcTT9qR' type='image/png'/ >
+   <meta name="Description" content="Search the web all from one place." />
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+<style>
+.futura {
+font-family: futura;
+font-size: 40px;
+color: #db4437ff;
+cursor: default;
+user-select: none;
+}
+.blue {
+color: #4285f4ff;
+}
+.green {
+color: #8acf26ff;
+}
+#logo {
+position: absolute;
+left: 20px;
+top: 30px;
+width: 100%;
+}
+#search {
+position: absolute;
+top: 10px;
+left: 20px;
+width: 500px;
+height: 50px;
+border-radius: 25px;
+background: transparent;
+border: 1px solid lightgrey;
+}
+#input {
+position: absolute;
+top: 0px;
+left: 20px;
+width: 400px;
+height: 50px;
+border: none;
+background: transparent;
+font-size: 20px;
+color: grey;
+}
+#enter {
+position: absolute;
+top: 0px;
+height: 52px;
+width: 60px;
+right: 20px;
+border: none;
+background: transparent;
+color: #4285f4;
+opacity: 0.9;
+cursor: pointer;
+padding: 8px;
+}
+#enter:hover {
+opacity: 1.0;
+}
+input:focus {
+outline-width: 0;
+}
+#nav {
+position: fixed;
+top: 0px;
+left: 0px;
+width: 100%;
+height: 100px;
+z-index: 1;
+}
+.option {
+width: 200px;
+height: 60px;
+border: none;
+background: white;
+font-size: 25px;
+cursor: pointer;
+border-radius: 7px;
+text-align: left;
+padding: 15px;
+}
+.option:hover {
+background: lightgrey;
+}
+#en {
+position: absolute;
+top: 200px;
+left: 20px;
+}
+#dark {
+position: absolute;
+top: 200px;
+left: 230px;
+}
+#es {
+position: absolute;
+top: 270px;
+left: 20px;
+}
+#pl {
+position: absolute;
+top: 340px;
+left: 20px;
+}
+#ru {
+position: absolute;
+top: 410px;
+left: 20px;
+}
+#url {
+position: absolute;
+top: 150px;
+left: 20px;
+height: 30px;
+width: 60%;
+font-size: 18px;
+color: grey;
+cursor: pointer;
+}
+.material-icons {
+float: right;
+}
+</style>
+<body>
+<p id="logo" class="futura"><span class="blue">gB</span>row<span class="green">ser</span> <span style="color: grey;">settings</span></p>
+
+<div id="nav">
+<div id="search">
+<form action="https://lb123658.github.io/g-browser/search" id="form" autocomplete="off">
+<input type="text" id="input" placeholder="Search..." name="q">
+</form>
+<button id="enter" type="submit" form="form"><span class="material-icons" style="font-size: 30px;">search</span></button>
+</div>
+</div>
+<button class="option" id="en" onclick="english()">English <span class="material-icons">light_mode</span></button>
+<button class="option" id="dark" onclick="d()">English <span class="material-icons">dark_mode</span></button>
+<button class="option" id="es" onclick="espanol()">Español <span class="material-icons">light_mode</span></button>
+<button class="option" id="pl" onclick="polski()">Polski <span class="material-icons">light_mode</span></button>
+<button class="option" id="ru" onclick="russian()">Русский <span class="material-icons">light_mode</span></button>
+
+<input id="url" type="text" autocomplete="off" placeholder="Website link with settings" title="Click to copy url" onclick="copy()">
+
+<script>
+function english() {
+document.getElementById("url").value = "https://lb123658.github.io/g-browser/start";
+}
+function d() {
+document.getElementById("url").value = "https://lb123658.github.io/g-browser/start?mode=dark";
+}
+function espanol() {
+document.getElementById("url").value = "https://lb123658.github.io/g-browser/start?l=es";
+}
+function polski() {
+document.getElementById("url").value = "https://lb123658.github.io/g-browser/start?l=pl";
+}
+function russian() {
+document.getElementById("url").value = "https://lb123658.github.io/g-browser/start?l=ru";
+}
+function copy() {
+  var copyText = document.getElementById("url");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999)
+  document.execCommand("copy");
+  alert("Link copied with your settings");
+}  
+</script>
+</body>
+</html>
