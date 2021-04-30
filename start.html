@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -111,7 +112,8 @@ cursor: pointer;
 <button id="enter" type="submit" form="form"><span class="material-icons" style="font-size: 30px;">search</span></button>
 <button id="suggestion" type="submit" form="form">Search suggestions</button>
 </div>
-<button class="settings" id="set"><span class="material-icons">settings</span></button>
+<a href="settings">
+<button class="settings" id="set"><span class="material-icons">settings</span></button></a>
 <a href="https://lb123658.github.io/g-browser/start?mode=light">
 <button class="settings" id="light"><span class="material-icons">light_mode</span></button></a>
 <a href="https://lb123658.github.io/g-browser/start?mode=dark">
@@ -128,7 +130,9 @@ document.getElementById("body").style.background = "#282828";
 } else if (window.location.search == "?l=pl") {
    document.getElementById("t").innerHTML = "gBrowser - szukaj w internecie";
    document.getElementById("input").placeholder = "Szukaj...";
-}                      
+} else if (location.search.split("&")[1] == "mode=dark") {              
+   document.getElementById("body").style.background = "#282828";
+}
 </script>
 </body>
 </html>
