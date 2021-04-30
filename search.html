@@ -251,8 +251,7 @@ left: 20px;
 <body onload="setTimeout(elSearch, 500)">
 
 <div id="qArea">
-<a href="https://lb123658.github.io/g-browser/start">
-<img src="https://drive.google.com/thumbnail?id=1vlBV9onFWQLszILsmnmmpBsD7fcTT9qR" id="qareaLogo" /></a>
+<img src="https://drive.google.com/thumbnail?id=1vlBV9onFWQLszILsmnmmpBsD7fcTT9qR" id="qareaLogo" onclick="history()"/>
 <form action="https://lb123658.github.io/g-browser/search" id="form">
 <input type="text" id="qText" placeholder="Search gBrowser" name="q">
 </form>
@@ -445,6 +444,9 @@ document.getElementById("yahoo").style.visibility = "visible";
 document.getElementById("webff").style.fontWeight = "bold";
 document.getElementById("imagesff").style.fontWeight = "normal";
 document.getElementById("videosff").style.fontWeight = "normal";
+}
+function history() {
+window.history.back()
 }
 </script>
 
