@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -72,6 +73,7 @@ opacity: 1.0;
 input:focus {
     outline-width: 0;
 }
+/* suggestions turned off */
 #suggestion {
 width: 460px;
 position: absolute;
@@ -89,7 +91,14 @@ text-overflow: ellipsis;
 visibility: hidden;
 }
 #suggestion:hover {
-color: 
+color: #4285f4;
+}
+.settings {
+background: transparent;
+color: grey;
+border: none;
+cursor: pointer;
+}
 </style>
 <body id="body">
 <p id="logo" class="futura"><span class="blue">gB</span>row<span class="green">ser</span></p>
@@ -97,13 +106,16 @@ color:
 <!-- center search bar -->
 <div id="search">
 <form action="https://lb123658.github.io/g-browser/search" id="form" autocomplete="off">
-<input type="text" id="input" placeholder="Search..." name="q" onmouseover="hover()" onmouseout="off()" onkeyup="text()">
+<input type="text" id="input" placeholder="Search..." name="q">
 </form>
 <button id="enter" type="submit" form="form"><span class="material-icons" style="font-size: 30px;">search</span></button>
-<button id="suggestion" type="submit" form="form" onmouseover="hover()" onmouseout="off()">Search suggestions</button>
+<button id="suggestion" type="submit" form="form">Search suggestions</button>
 </div>
-
-
+<button class="settings" id="set"><span class="material-icons">settings</span></button>
+<a href="https://lb123658.github.io/g-browser/start?mode=light">
+<button class="settings" id="light"><span class="material-icons">light_mode</span></button></a>
+<a href="https://lb123658.github.io/g-browser/start?mode=dark">
+<button class="settings" id="dark"><span class="material-icons">dark_mode</span></button></a>
 <script>
 if (window.location.search == "?mode=dark") {
 document.getElementById("body").style.background = "#282828";
@@ -116,19 +128,7 @@ document.getElementById("body").style.background = "#282828";
 } else if (window.location.search == "?l=pl") {
    document.getElementById("t").innerHTML = "gBrowser - szukaj w internecie";
    document.getElementById("input").placeholder = "Szukaj...";
-}
-                           
-function hover() {
-document.getElementById("suggestion").style.visibility = "hidden";
-}
-function off() {
-document.getElementById("suggestion").style.visibility = "hidden";
-}
-function text() {
-var x = document.getElementById("input");
-document.getElementById("suggestion").innerHTML = x.value;
-}
-
+}                      
 </script>
 </body>
 </html>
