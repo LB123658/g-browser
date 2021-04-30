@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -132,6 +130,10 @@ document.getElementById("body").style.background = "#282828";
    document.getElementById("input").placeholder = "Szukaj...";
 } else if (location.search.split("&")[1] == "mode=dark") {              
    document.getElementById("body").style.background = "#282828";
+} else if (window.location.search == "?l=es&mode=dark") {
+   document.getElementById("body").style.background = "#282828";
+   document.getElementById("t").innerHTML = "gBrowser - buscar en el internet";
+   document.getElementById("input").placeholder = "Buscar...";
 }
 </script>
 </body>
