@@ -1,454 +1,244 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Search with gBrowser</title>
+<title id="t">gBrowser - search the web</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
-<link rel='icon' href='https://drive.google.com/thumbnail?id=1vlBV9onFWQLszILsmnmmpBsD7fcTT9qR' type='image/png'/ >     
+<link rel='icon' href='https://drive.google.com/thumbnail?id=1vlBV9onFWQLszILsmnmmpBsD7fcTT9qR' type='image/png'/ >
+<meta name="Description" content="Search the web all from one place." />
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <style>
-#qArea {
-position: fixed;
-top: 0px;
-left: 0px;
-width: 100%;
-height: 90px;
-z-index: 1;
-background: white;
-}
-#qareaLogo {
-position: absolute;
-top: 10px;
-height: 37px;
-left: 10px;
-cursor: pointer;
-}
-#qText {
-position: absolute;
-top: 10px;
-height: 30px;
-left: 70px;
-width: 500px;
-border: 1.8px solid #4285f4ff;
-border-radius: 5px 0px 0px 5px;
-font-size: 20px;
-color: grey;
-}
-#qText:hover {
-color: #4285f4ff;
-}
-#qStarter {
-position: absolute;
-top: 10px;
-height: 36px;
-left: 578px;
-border-radius: 0px 5px 5px 0px;
-border: 1.8px solid #4285f4ff;
-color: #4285f4ff;
-background: transparent;
-cursor: pointer;
-}
-#qStarter:hover {
-background-color: #4285f4ff;
-animation-name: go;
-  animation-duration: 0.9s;
-  animation-iteration-count: 1;
-  color: white;
-}
-@keyframes go {
- 
-  0% {background-color: transparent;}
-  100%   {background-color: #4285F4;}
-
-}
-.result {
-width: 300px;
-border: none;
-background: transparent;
-color: #4285f4ff;
-height: 100px;
-font-size: 20px;
-cursor: pointer;
-text-align: left;
-visibility: hidden;
-border-radius: 10px;
-}
-.result:hover {
-opacity: 0.7;
-text-decoration: UNDERLINE;
-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-#first {
-position: absolute;
-top: 100px;
-left: 20px;
-}
-#second {
-position: absolute;
-top: 200px;
-left: 20px;
-}
-#third {
-position: absolute;
-top: 300px;
-left: 20px;
-}
-#third:hover {
-color: red;
-opacity: 0.7;
-}
-#fourth {
-position: absolute;
-top: 400px;
-left: 20px;
-}
-#fifth {
-position: absolute;
-top: 500px;
-left: 20px;
-}
-.variant {
-color: #4285f4ff;
-font-size: 15px;
-border: none;
-background: transparent;
-}
-.variant:hover {
-opacity: 0.8;
-cursor: pointer;
-}
-#webff {
-position: absolute;
-top: 60px;
-left: 70px;
-font-weight: bold;
-}
-#imagesff {
-position: absolute;
-top: 60px;
-left: 120px;
-}
-#videosff {
-position: absolute;
-top: 60px;
-left: 190px;
-}
-#vk {
-position: absolute;
-top: 600px;
-left: 20px;
-}
-#yandex {
-position: absolute;
-top: 700px;
-left: 20px;
-}
-#amazon {
-position: absolute;
-top: 800px;
-left: 20px;
-}
-#pinterest {
-position: absolute;
-top: 900px;
-left: 20px;
-}
-#site {
-position: absolute;
-top: 1000px;
-left: 20px;
-}
-#site:hover {
-color: red;
-opacity: 0.7;
-}
-#ebay {
-position: absolute;
-top: 1100px;
-left: 20px;
-}
-#yahoo {
-position: absolute;
-top: 1200px;
-left: 20px;
-}
-#infoCenter {
-position: fixed;
-top: 10px;
-right: 10px;
-color: #4285f4ff;
-font-weight: bold;
-border: none;
-height: 37px;
-background: transparent;
-border-radius: 18.5px;
-cursor: pointer;
-width: 50px;
-}
-#infoCenter:hover {
-background: #f0f0f0;
-}
-#popUp {
-position: fixed;
-top: 10px;
-right: 10px;
-height: 160px;
-width: 400px;
-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-background: white;
-border-radius: 10px;
+.futura {
 font-family: futura;
-color: grey;
+font-size: 70px;
+text-align: center;
+color: #db4437ff;
+cursor: default;
 user-select: none;
-z-index: 1;
 }
-#popInfo {
+.blue {
+color: #4285f4ff;
+}
+.green {
+color: #8acf26ff;
+}
+#logo {
 position: absolute;
-top: 10px;
-left: 10px;
+left: 0%;
+top: 7.5%;
+width: 100%;
 }
-#alert {
-color: black;
-}
-#ru {
+#search {
 position: absolute;
-bottom: 20px;
-right: 20px;
-height: 35px;
-width: 80px;
-font-size: 20px;
-color: black;
+top: 40%;
+left: 50%;
+width: 500px;
+height: 50px;
+border-radius: 25px;
+background: transparent;
+border: 1px solid lightgrey;
+margin-left: -250px;
+}
+#search:hover {
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+#input {
+position: absolute;
+top: 0px;
+left: 20px;
+width: 400px;
+height: 50px;
 border: none;
-border-radius: 7px;
-background: #FFCC00;
-cursor: pointer;
+background: transparent;
+font-size: 20px;
+color: grey;
 }
-
-#imageResults {
+#enter {
+position: absolute;
+top: 0px;
+height: 52px;
+width: 60px;
+right: 20px;
+border: none;
+background: transparent;
+color: #4285f4;
+opacity: 0.9;
+cursor: pointer;
+padding: 8px;
+}
+#enter:hover {
+opacity: 1.0;
+}
+input:focus {
+    outline-width: 0;
+}
+/* suggestions turned off */
+#suggestion {
+width: 460px;
+position: absolute;
+top: 45px;
+left: 20px;
+height: 35px;
+border: 1px solid lightgrey;
+border-radius: 6px;
+background: white;
+cursor: pointer;
+color: grey;
+font-size: 17px;
+text-align: left;
+text-overflow: ellipsis;
 visibility: hidden;
 }
-#iyandex {
-position: absolute;
-top: 100px;
-left: 20px;
+#suggestion:hover {
+color: #4285f4;
 }
-#igoogle {
-position: absolute;
-top: 200px;
-left: 20px;
+.settings {
+background: transparent;
+color: grey;
+border: none;
+cursor: pointer;
 }
-#ipinterest {
+#search-div {
 position: absolute;
-top: 300px;
+top: 50px;
 left: 20px;
+width: 120px;
+height: 180px;
+border-radius: 6px;
+border: 1px solid lightgrey;
+visibility: hidden;
 }
-#igiphy {
-position: absolute;
-top: 400px;
-left: 20px;
+.site {
+height: 30px;
+width: 120px;
+font-size: 18px;
+border: none;
+border: none;
+border-radius: 6px;
+background: transparent;
+text-align: left;
+color: grey;
+}
+.site:hover {
+background: lightgrey;
+cursor: pointer;
+}
+#cancel {
+border: 1px solid #db4437;
+color: #db4437;
+}
+#cancel:hover {
+color: white;
+background: #db4437;
 }
 </style>
-</head>
-<body onload="setTimeout(elSearch, 500)">
+<body id="body">
+<p id="logo" class="futura"><span class="blue">gB</span>row<span class="green">ser</span></p>
 
-<div id="qArea">
-<img src="https://drive.google.com/thumbnail?id=1vlBV9onFWQLszILsmnmmpBsD7fcTT9qR" id="qareaLogo" onclick="history()"/>
-<form action="https://lb123658.github.io/g-browser/search" id="form">
-<input type="text" id="qText" placeholder="Search gBrowser" name="q">
+<!-- center search bar -->
+<div id="search">
+<form action="https://lb123658.github.io/g-browser/search" id="form" autocomplete="off">
+<input type="text" id="input" placeholder="Search..." name="q">
 </form>
-<button type="submit" form="form" id="qStarter"><span class="material-icons">
-search
-</span></button>
-
-<button class="variant" id="webff" onclick="showWeb()">Web</button>
-<button class="variant" id="imagesff" onclick="showImages()">Images</button>
-<button class="variant" id="videosff" onclick="showVideos()">Videos</button>
+<button id="enter" type="submit" form="form"><span class="material-icons" style="font-size: 30px;">search</span></button>
+<button id="suggestion" type="submit" form="form">Search suggestions</button>
 </div>
-<div id="popUp">
-<p id="popInfo"><span id="alert">New update:</span><br><br>Results that have may not be completely safe are marked in red.</p>
-<button id="ru" onclick="unPop()">Got it</button>
-</div>
+<a href="settings">
+<button class="settings" id="set"><span class="material-icons">settings</span></button></a>
+<a href="https://lb123658.github.io/g-browser/start?mode=light" id="l">
+<button class="settings" id="light"><span class="material-icons">light_mode</span></button></a>
+<a href="https://lb123658.github.io/g-browser/start?mode=dark" id="d">
+<button class="settings" id="dark"><span class="material-icons">dark_mode</span></button></a>
 
-<div id="searchResults">
-<a href="https://en.wikipedia.org/wiki/Special:Search?search=" id="firstA" target="_blank">
-<button class="result" id="first">Wikipedia</button></a>
-
-<a href="https://google.com/search/?q=" id="secondA" target="_blank">
-<button class="result" id="second">Google</button></a>
-
-<a href="https://.com" id="thirdA" target="_blank">
-<button class="result" id="third">Unknown site</button></a>
-
-
-<a href="https://www.youtube.com/results?search_query=" id="fourthA" target="_blank">
-<button class="result" id="fourth">YouTube</button></a>
-
-<a href="https://twitter.com/search?q=" id="fifthA" target="_blank">
-<button class="result" id="fifth">Twitter</button></a>
-
-
-<a href="https://twitter.com/search?q=" id="fifthA" target="_blank">
-<button class="result" id="fifth">Twitter</button></a>
-
-<a href="https://vk.com/search?c%5Bq%5D=" id="vkA" target="_blank">
-<button class="result" id="vk">В Контакте</button></a>
-
-<a href="https://yandex.com/search/?text=" id="yandexA" target="_blank">
-<button class="result" id="yandex">Yandex</button></a>
-
-<a href="https://www.amazon.com/s?k=" id="amazonA" target="_blank">
-<button class="result" id="amazon">Amazon</button></a>
-
-<a href="https://pinterest.com" id="pinterestA" target="_blank">
-<button class="result" id="pinterest">Pinterest</button></a>
-
-<a href="about:blank" id="siteA" target="_blank">
-<button class="result" id="site">Unknown site</button></a>
-
-<a href="https://ebay.com" id="ebayA" target="_blank">
-<button class="result" id="ebay">Ebay</button></a>
-
-<a href="https://yahoo.com" id="yahooA" target="_blank">
-<button class="result" id="yahoo">Yahoo!</button></a>
+<!-- english only other search engines -->
+<button class="settings" id="engine" title="Search engine settings" onclick="show()"><span class="material-icons">manage_search</span></button>
+<div id="search-div">
+<a href="https://lb123658.github.io/g-browser/start?web=duckduckgo">
+<button class="site">DuckDuckGo</button></a>
+<a href="https://lb123658.github.io/g-browser/start?web=ecosia">
+<button class="site">Ecosia</button></a>
+<a href="https://lb123658.github.io/g-browser/start?web=qwant">
+<button class="site">Qwant</button></a>
+<a href="https://lb123658.github.io/g-browser/start?web=baidu">
+<button class="site">Baidu</button></a>
+<a href="https://lb123658.github.io/g-browser/start?web=yandex">
+<button class="site">Yandex</button></a>
+<button class="site" id="cancel" onclick="hide()">Close</button>
 </div>
 
-<div id="imageResults">
-<a href="https://yandex.com/images" id="iyandexA" target="_blank">
-<button class="result" id="iyandex">Yandex Images</button></a>
-
-<a href="https://google.com/images" id="igoogleA" target="_blank">
-<button class="result" id="igoogle">Google Images</button></a>
-
-<a href="https://pinterest.com/" id="ipinterestA" target="_blank">
-<button class="result" id="ipinterest">Pinterest</button></a>
-
-<a href="https://giphy.com/" id="igiphyA" target="_blank">
-<button class="result" id="igiphy">Giphy</button></a>
-</div>
 <script>
-//searching function 
-document.getElementById("qText").value = location.search.split("=")[1];
-
-//actual results
-function elSearch() {
-var input = document.getElementById("qText");
-var first = document.getElementById("firstA");
-var second = document.getElementById("secondA");
-var third = document.getElementById("thirdA");
-var fourth = document.getElementById("fourthA");
-var fifth = document.getElementById("fifthA");
-var vkontakte = document.getElementById("vkA");
-first.href = "https://en.wikipedia.org/wiki/Special:Search?search=" + input.value;
-second.href = "https://google.com/search?q=" + input.value;
-third.href = "https://" + input.value + ".com";
-vkontakte.href = "https://vk.com/search?c%5Bq%5D=" + input.value;
-document.getElementById("third").innerHTML = "https://" + input.value + ".com";
-document.getElementById("first").innerHTML = "Wikipedia - " + input.value;
-document.getElementById("second").innerHTML = "Google - " + input.value;
-document.getElementById("fourth").innerHTML = "YouTube - " + input.value;
-fourth.href = "https://www.youtube.com/results?search_query=" + input.value;
-fifth.href = "https://twitter.com/search?q=" + input.value;
-document.getElementById("fifth").innerHTML = "Twitter - " + input.value;
-document.getElementById("vk").innerHTML = "В Контакте - " + input.value;
-document.getElementById("first").style.visibility = "visible";
-document.getElementById("second").style.visibility = "visible";
-document.getElementById("third").style.visibility = "visible";
-document.getElementById("fourth").style.visibility = "visible";
-document.getElementById("fifth").style.visibility = "visible";
-document.getElementById("vk").style.visibility = "visible";
-var yandex = document.getElementById("yandexA");
-yandex.href = "https://yandex.com/search/?text=" + input.value;
-document.getElementById("yandex").innerHTML = "Yandex - " + input.value;
-document.getElementById("yandex").style.visibility = "visible";
-var pinterest = document.getElementById("pinterestA");
-pinterest.href = "https://www.pinterest.com/search/pins/?q=" + input.value;
-document.getElementById("pinterest").innerHTML = "Pinterest - " + input.value;
-document.getElementById("pinterest").style.visibility = "visible";
-var amazon = document.getElementById("amazonA");
-amazon.href = "https://www.amazon.com/s?k=" + input.value;
-document.getElementById("amazon").innerHTML = "Amazon - " + input.value;
-document.getElementById("amazon").style.visibility = "visible";
-var site = document.getElementById("siteA");
-site.href = "https://" + input.value;
-document.getElementById("site").innerHTML = input.value;
-document.getElementById("site").style.visibility = "visible";
-var ebay = document.getElementById("ebayA");
-ebay.href = "https://www.ebay.com/sch/i.html?_from=R40&_trksid=p2540003.m570.l1313&_nkw=" + input.value;
-document.getElementById("ebay").innerHTML = "Ebay - " + input.value;
-document.getElementById("ebay").style.visibility = "visible";
-var yahoo = document.getElementById("yahooA");
-yahoo.href = "https://search.yahoo.com/search?p=" + input.value;
-document.getElementById("yahoo").innerHTML = input.value + " - Yahoo";
-document.getElementById("yahoo").style.visibility = "visible";
-//image section
-var iyandex = document.getElementById("iyandexA");
-iyandex.href = "https://yandex.com/images/search?text=" + input.value;
-document.getElementById("iyandex").innerHTML = "Yandex images - " + input.value;
-var igoogle = document.getElementById("igoogleA");
-igoogle.href = "https://www.google.com/search?source=lnms&tbm=isch&sa=X&ved=2ahUKEwjj0NijwtDvAhULQ80KHbjiAMoQ_AUoAnoECAEQBA&biw=1262&bih=796&q=" + input.value;
-document.getElementById("igoogle").innerHTML = "Google images - " + input.value;
-var ipinterest = document.getElementById("ipinterestA");
-ipinterest.href = "https://www.pinterest.com/search/pins/?q=" + input.value;
-document.getElementById("ipinterest").innerHTML = "Pinterest - " + input.value;
-var igiphy = document.getElementById("igiphyA");
-igiphy.href = "https://giphy.com/search/" + input.value;
-document.getElementById("igiphy").innerHTML = "Giphy - " + input.value;
-}
-function unPop() {
-document.getElementById("popUp").style.visibility = "hidden";
-}
-function showImages() {
-//image results
-document.getElementById("iyandex").style.visibility = "visible";
-document.getElementById("igoogle").style.visibility = "visible";
-document.getElementById("ipinterest").style.visibility = "visible";
-document.getElementById("igiphy").style.visibility = "visible";
-//normal results
-document.getElementById("first").style.visibility = "hidden";
-document.getElementById("second").style.visibility = "hidden";
-document.getElementById("third").style.visibility = "hidden";
-document.getElementById("fourth").style.visibility = "hidden";
-document.getElementById("fifth").style.visibility = "hidden";
-document.getElementById("vk").style.visibility = "hidden";
-document.getElementById("yandex").style.visibility = "hidden";
-document.getElementById("amazon").style.visibility = "hidden";
-document.getElementById("pinterest").style.visibility = "hidden";
-document.getElementById("site").style.visibility = "hidden";
-document.getElementById("ebay").style.visibility = "hidden";
-document.getElementById("yahoo").style.visibility = "hidden";
-//tabs at the top
-document.getElementById("webff").style.fontWeight = "normal";
-document.getElementById("imagesff").style.fontWeight = "bold";
-document.getElementById("videosff").style.fontWeight = "normal";
+var l = document.getElementById("l");
+var d = document.getElementById("d");
+if (window.location.search == "?mode=dark") {
+   document.getElementById("body").style.background = "#282828";
+} else if (location.search.split("&")[0] == "?l=es") {
+   document.getElementById("t").innerHTML = "gBrowser - buscar en el internet";
+   document.getElementById("input").placeholder = "Buscar...";
+   l.href = "https://lb123658.github.io/g-browser/start?l=es";
+   d.href = "https://lb123658.github.io/g-browser/start?l=esdark";
+   document.getElementById("engine").style.visibility = "hidden";
+} else if (location.search.split("&")[0] == "?l=ru") {
+   document.getElementById("t").innerHTML = "gBrowser - поиск в интернете";
+   document.getElementById("input").placeholder = "Поиск...";
+   l.href = "https://lb123658.github.io/g-browser/start?l=ru";
+   d.href = "https://lb123658.github.io/g-browser/start?l=rudark";
+   document.getElementById("engine").style.visibility = "hidden";
+} else if (location.search.split("&")[0] == "?l=pl") {
+   document.getElementById("t").innerHTML = "gBrowser - szukaj w internecie";
+   document.getElementById("input").placeholder = "Szukaj...";
+   l.href = "https://lb123658.github.io/g-browser/start?l=pl";
+   d.href = "https://lb123658.github.io/g-browser/start?l=pldark";
+   document.getElementById("engine").style.visibility = "hidden";
+} else if (location.search.split("&")[1] == "mode=dark") {              
+   document.getElementById("body").style.background = "#282828";
+} else if (location.search.split("&")[0] == "?l=esdark") {
+   document.getElementById("body").style.background = "#282828";
+   document.getElementById("t").innerHTML = "gBrowser - buscar en el internet";
+   document.getElementById("input").placeholder = "Buscar...";
+   l.href = "https://lb123658.github.io/g-browser/start?l=es";
+   d.href = "https://lb123658.github.io/g-browser/start?l=esdark";
+   document.getElementById("engine").style.visibility = "hidden";
+} else if (location.search.split("&")[0] == "?l=pldark") {
+   document.getElementById("body").style.background = "#282828";
+   document.getElementById("t").innerHTML = "gBrowser - szukaj w internecie";
+   document.getElementById("input").placeholder = "Szukaj...";
+   l.href = "https://lb123658.github.io/g-browser/start?l=pl";
+   d.href = "https://lb123658.github.io/g-browser/start?l=pldark";
+   document.getElementById("engine").style.visibility = "hidden";
+} else if (location.search.split("&")[0] == "?l=rudark") {
+   document.getElementById("body").style.background = "#282828";
+   document.getElementById("t").innerHTML = "gBrowser - поиск в интернете";
+   document.getElementById("input").placeholder = "Поиск...";
+   l.href = "https://lb123658.github.io/g-browser/start?l=ru";
+   d.href = "https://lb123658.github.io/g-browser/start?l=rudark";
+   document.getElementById("engine").style.visibility = "hidden";
+} else if (window.location.search == "?web=duckduckgo") {
+   document.getElementById("form").action = "https://duckduckgo.com/";
+   document.getElementById("input").name = "q";
+   document.getElementById("input").placeholder = "Search DuckDuckGo...";
+} else if (window.location.search == "?web=ecosia") {
+   document.getElementById("form").action = "https://ecosia.org/search";
+   document.getElementById("input").name = "q";
+   document.getElementById("input").placeholder = "Search Ecosia...";
+} else if (window.location.search == "?web=qwant") {
+   document.getElementById("form").action = "https://www.qwant.com/search";
+   document.getElementById("input").name = "q";
+   document.getElementById("input").placeholder = "Search Qwant...";
+} else if (window.location.search == "?web=baidu") {
+   document.getElementById("form").action = "https://www.baidu.com/s";
+   document.getElementById("input").name = "wd";
+   document.getElementById("input").placeholder = "Search Baidu...";
+} else if (window.location.search == "?web=yandex") {
+   document.getElementById("form").action = "https://yandex.com/search/";
+   document.getElementById("input").name = "text";
+   document.getElementById("input").placeholder = "Search Yandex...";
 }
 
-function showWeb() {
-//image results
-document.getElementById("iyandex").style.visibility = "hidden";
-document.getElementById("igoogle").style.visibility = "hidden";
-document.getElementById("ipinterest").style.visibility = "hidden";
-document.getElementById("igiphy").style.visibility = "hidden";
-//normal results
-document.getElementById("first").style.visibility = "visible";
-document.getElementById("second").style.visibility = "visible";
-document.getElementById("third").style.visibility = "visible";
-document.getElementById("fourth").style.visibility = "visible";
-document.getElementById("fifth").style.visibility = "visible";
-document.getElementById("vk").style.visibility = "visible";
-document.getElementById("yandex").style.visibility = "visible";
-document.getElementById("amazon").style.visibility = "visible";
-document.getElementById("pinterest").style.visibility = "visible";
-document.getElementById("site").style.visibility = "visible";
-document.getElementById("ebay").style.visibility = "visible";
-document.getElementById("yahoo").style.visibility = "visible";
-//tabs at the top
-document.getElementById("webff").style.fontWeight = "bold";
-document.getElementById("imagesff").style.fontWeight = "normal";
-document.getElementById("videosff").style.fontWeight = "normal";
+function show() {
+document.getElementById("search-div").style.visibility = "visible";
 }
-function history() {
-window.history.go(-1);
+function hide() {
+document.getElementById("search-div").style.visibility = "hidden";
 }
 </script>
-
 </body>
 </html>
