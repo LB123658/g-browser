@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title id="t">gBrowser - search the web</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel='icon' href='https://drive.google.com/thumbnail?id=1vlBV9onFWQLszILsmnmmpBsD7fcTT9qR' type='image/png'/ >
+   <meta name="Description" content="Search the web all from one place." />
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+<style>
+.futura {
+font-family: futura;
+font-size: 70px;
+text-align: center;
+color: #db4437ff;
+cursor: default;
+user-select: none;
+}
+.blue {
+color: #4285f4ff;
+}
+.green {
+color: #8acf26ff;
+}
+#logo {
+position: absolute;
+left: 0%;
+top: 7.5%;
+width: 100%;
+}
+#search {
+position: absolute;
+top: 40%;
+left: 50%;
+width: 500px;
+height: 50px;
+border-radius: 25px;
+background: transparent;
+border: 1px solid lightgrey;
+margin-left: -250px;
+}
+#search:hover {
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+#input {
+position: absolute;
+top: 0px;
+left: 20px;
+width: 400px;
+height: 50px;
+border: none;
+background: transparent;
+font-size: 20px;
+color: grey;
+}
+#enter {
+position: absolute;
+top: 0px;
+height: 52px;
+width: 60px;
+right: 20px;
+border: none;
+background: transparent;
+color: #4285f4;
+opacity: 0.9;
+cursor: pointer;
+padding: 8px;
+}
+#enter:hover {
+opacity: 1.0;
+}
+input:focus {
+    outline-width: 0;
+}
+#suggestion {
+width: 460px;
+position: absolute;
+top: 45px;
+left: 20px;
+height: 35px;
+border: 1px solid lightgrey;
+border-radius: 6px;
+background: white;
+cursor: pointer;
+color: grey;
+font-size: 17px;
+text-align: left;
+text-overflow: ellipsis;
+visibility: hidden;
+}
+#suggestion:hover {
+color: 
+</style>
+<body id="body">
+<p id="logo" class="futura"><span class="blue">gB</span>row<span class="green">ser</span></p>
+
+<!-- center search bar -->
+<div id="search">
+<form action="https://lb123658.github.io/g-browser/search" id="form" autocomplete="off">
+<input type="text" id="input" placeholder="Search..." name="q" onmouseover="hover()" onmouseout="off()" onkeyup="text()">
+</form>
+<button id="enter" type="submit" form="form"><span class="material-icons" style="font-size: 30px;">search</span></button>
+<button id="suggestion" type="submit" form="form" onmouseover="hover()" onmouseout="off()">Search suggestions</button>
+</div>
+
+
+<script>
+var t = document.getElementById("t");
+var input = document.getElementById("input");
+if (window.location.search == "?mode=dark") {
+document.getElementById("body").style.background = "#282828";
+} else if (window.location.search == "?l=es" {
+t.innerHTML = "gBrowser - buscar en el internet";
+input.placeholder = "Buscar...";
+} else if (window.location.search == "?l=ru" {
+t.innerHTML = "gBrowser - поиск в инернете";
+input.placeholder = "поиск...";
+} else if (window.location.search == "?l=pl" {
+t.innerHTML = "gBrowser - szukaj w internecie";
+input.placeholder = "Szukaj...";
+}
+function hover() {
+document.getElementById("suggestion").style.visibility = "visible";
+}
+function off() {
+document.getElementById("suggestion").style.visibility = "hidden";
+}
+function text() {
+var x = document.getElementById("input");
+document.getElementById("suggestion").innerHTML = x.value;
+}
+
+</script>
+</body>
+</html>
