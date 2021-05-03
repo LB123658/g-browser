@@ -170,6 +170,9 @@ var l = document.getElementById("l");
 var d = document.getElementById("d");
 if (window.location.search == "?mode=dark") {
    document.getElementById("body").style.background = "#282828";
+} else if (window.location.search == "?mode=light") {
+    document.getElementById("body").style.background = "white";
+    document.getElementById("darkScript").remove();
 } else if (location.search.split("&")[0] == "?l=es") {
    document.getElementById("t").innerHTML = "gBrowser - buscar en el internet";
    document.getElementById("input").placeholder = "Buscar...";
@@ -240,6 +243,6 @@ function hide() {
 document.getElementById("search-div").style.visibility = "hidden";
 }
 </script>
-<script src="dark-mode.js"></script>
+<script src="dark-mode.js" id="darkScript"></script>
 </body>
 </html>
