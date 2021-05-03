@@ -244,5 +244,11 @@ document.getElementById("search-div").style.visibility = "hidden";
 }
 </script>
 <script src="dark-mode.js" id="darkScript"></script>
+<script>
+    if (window.location.search == "?mode=light") {
+    document.getElementById("body").style.background = "white";
+    document.getElementById("darkScript").remove();
+}
+</script>
 </body>
 </html>
