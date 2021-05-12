@@ -36,6 +36,10 @@ color: grey;
 #qText:hover {
 color: #4285f4ff;
 }
+#qText:focus {
+outline-width: 0;
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
 #qStarter {
 position: absolute;
 top: 10px;
@@ -222,7 +226,26 @@ border-radius: 7px;
 background: #FFCC00;
 cursor: pointer;
 }
-
+#ru:focus {
+opacity: 0.7;
+}
+#nocebolla {
+position: absolute;
+bottom: 20px;
+right: 120px;
+height: 35px;
+width: 80px;
+font-size: 20px;
+color: black;
+border: none;
+border-radius: 7px;
+background: lightgrey;
+cursor: pointer;
+}
+#nocebolla:focus {
+background: #282828;
+color: lightgrey;
+}
 #imageResults {
 visibility: hidden;
 }
@@ -246,6 +269,20 @@ position: absolute;
 top: 400px;
 left: 20px;
 }
+#fast {
+position: absolute;
+top: 10px;
+height: 38px;
+left: 650px;
+border: none;
+border-radius: 6px;
+}
+#fast:hover {
+background: lightgrey;
+}
+#fast:focus {
+border: 1px solid #282828;
+}
 </style>
 </head>
 <body onload="setTimeout(elSearch, 500)">
@@ -254,7 +291,7 @@ left: 20px;
 <a href="https://lb123658.github.io/g-browser/start">
 <img src="https://drive.google.com/thumbnail?id=1vlBV9onFWQLszILsmnmmpBsD7fcTT9qR" id="qareaLogo" /></a>
 <form action="https://lb123658.github.io/g-browser/search" id="form">
-<input type="text" id="qText" placeholder="Search gBrowser" name="q">
+<input type="text" id="qText" placeholder="Search gBrowser" name="q" autocomplete="off">
 </form>
 <button type="submit" form="form" id="qStarter"><span class="material-icons">
 search
@@ -263,10 +300,16 @@ search
 <button class="variant" id="webff" onclick="showWeb()">Web</button>
 <button class="variant" id="imagesff" onclick="showImages()">Images</button>
 <button class="variant" id="videosff" onclick="showVideos()">Videos</button>
+
+<!-- fast result -->
+<a href="" id="quickLink" target="_blank">
+<button id="fast"><span class="material-icons" id="level">gpp_good</span> <span id="innerInfo">Results look safe</span></button></a>
 </div>
 <div id="popUp">
-<p id="popInfo"><span id="alert">New update:</span><br><br>Results that have may not be completely safe are marked in red.</p>
-<button id="ru" onclick="unPop()">Got it</button>
+<p id="popInfo"><span id="alert">New update:</span><br><br>Try a more private search with a new feature from gBrowser.</p>
+<a href="https://lb123658.github.io/cebolla/?page=new">
+<button id="ru" onclick="unPop()">Try it</button></a>
+<button id="nocebolla" onclick="unPop()">Close</button>
 </div>
 
 <div id="searchResults">
@@ -325,6 +368,7 @@ search
 <a href="https://giphy.com/" id="igiphyA" target="_blank">
 <button class="result" id="igiphy">Giphy</button></a>
 </div>
+
 <script>
 //searching function 
 document.getElementById("qText").value = location.search.split("=")[1];
@@ -446,6 +490,154 @@ document.getElementById("webff").style.fontWeight = "bold";
 document.getElementById("imagesff").style.fontWeight = "normal";
 document.getElementById("videosff").style.fontWeight = "normal";
 }
+
+//for quick result
+var query = location.search.split("=")[1];
+var icon = document.getElementById("level");
+var text = document.getElementById("innerInfo");
+var tosdr = document.getElementById("quickLink");
+if (query == "duckduckgo") {
+level.style.color = "#28a745";
+text.innerHTML = "DuckDuckGo is safe";
+} else if (query == "tryhow_js_typewriter") {
+level.innerHTML = "warning";
+level.style.color = "red";
+text.innerHTML = "Unknown";
+} else if (query == "google") {
+level.innerHTML = "warning";
+level.style.color = "red";
+text.innerHTML = "Low privacy";
+tosdr.href = "https://tosdr.org/en/service/217";
+} else if (query == "Google") {
+level.innerHTML = "warning";
+level.style.color = "red";
+text.innerHTML = "Low privacy";
+tosdr.href = "https://tosdr.org/en/service/217";
+} else if (query == "instagram") {
+level.innerHTML = "warning";
+level.style.color = "#ffc000";
+text.innerHTML = "Low privacy";
+tosdr.href = "https://tosdr.org/en/service/219";
+} else if (query == "insta") {
+level.innerHTML = "warning";
+level.style.color = "#ffc000";
+text.innerHTML = "Low privacy";
+tosdr.href = "https://tosdr.org/en/service/219";
+} else if (query == "Instagram") {
+level.innerHTML = "warning";
+level.style.color = "#ffc000";
+text.innerHTML = "Low privacy";
+tosdr.href = "https://tosdr.org/en/service/219";
+} else if (query == "youtube") {
+level.innerHTML = "warning";
+level.style.color = "red";
+text.innerHTML = "Low privacy";
+tosdr.href = "https://tosdr.org/en/service/274";
+} else if (query == "youTube") {
+level.innerHTML = "warning";
+level.style.color = "red";
+text.innerHTML = "Low privacy";
+tosdr.href = "https://tosdr.org/en/service/274";
+} else if (query == "Youtube") {
+level.innerHTML = "warning";
+level.style.color = "red";
+text.innerHTML = "Low privacy";
+tosdr.href = "https://tosdr.org/en/service/274";
+} else if (query == "YouTube") {
+level.innerHTML = "warning";
+level.style.color = "red";
+text.innerHTML = "Low privacy";
+tosdr.href = "https://tosdr.org/en/service/274";
+} else if (query == "pinterest") {
+level.innerHTML = "warning";
+level.style.color = "#ffc000";
+text.innerHTML = "Low privacy";
+tosdr.href = "https://tosdr.org/en/service/175";
+} else if (query == "Pinterest") {
+level.innerHTML = "warning";
+level.style.color = "#ffc000";
+text.innerHTML = "Low privacy";
+tosdr.href = "https://tosdr.org/en/service/175";
+} else if (query == "wikipedia") {
+level.innerHTML = "gpp_good";
+level.style.color = "#28a745";
+text.innerHTML = "Good privacy";
+tosdr.href = "https://tosdr.org/en/service/265";
+} else if (query == "Wikipedia") {
+level.innerHTML = "gpp_good";
+level.style.color = "#28a745";
+text.innerHTML = "Good privacy";
+tosdr.href = "https://tosdr.org/en/service/265";
+} else if (query == "amazon") {
+level.innerHTML = "warning";
+level.style.color = "#ffc00";
+text.innerHTML = "Low privacy";
+tosdr.href = "https://tosdr.org/en/service/190";
+} else if (query == "Amazon") {
+level.innerHTML = "warning";
+level.style.color = "#ffc00";
+text.innerHTML = "Low privacy";
+tosdr.href = "https://tosdr.org/en/service/190";
+} else if (query == "facebook") {
+level.innerHTML = "warning";
+level.style.color = "#ffc00";
+text.innerHTML = "Low privacy";
+tosdr.href = "https://tosdr.org/en/service/182";
+} else if (query == "Facebook") {
+level.innerHTML = "warning";
+level.style.color = "#ffc00";
+text.innerHTML = "Low privacy";
+tosdr.href = "https://tosdr.org/en/service/182";
+} else if (query == "coronavirus") {
+level.innerHTML = "coronavirus";
+level.style.color = "red";
+text.innerHTML = "COVID-19";
+tosdr.href = "https://coronavirus.jhu.edu/map.html";
+} else if (query == "corona") {
+level.innerHTML = "coronavirus";
+level.style.color = "red";
+text.innerHTML = "COVID-19";
+tosdr.href = "https://coronavirus.jhu.edu/map.html";
+} else if (query == "covid") {
+level.innerHTML = "coronavirus";
+level.style.color = "red";
+text.innerHTML = "COVID-19";
+tosdr.href = "https://coronavirus.jhu.edu/map.html";
+} else if (query == "covid+19") {
+level.innerHTML = "coronavirus";
+level.style.color = "red";
+text.innerHTML = "COVID-19";
+tosdr.href = "https://coronavirus.jhu.edu/map.html";
+} else if (query == "covid-19") {
+level.innerHTML = "coronavirus";
+level.style.color = "red";
+text.innerHTML = "COVID-19";
+tosdr.href = "https://coronavirus.jhu.edu/map.html";
+} else if (query == "Covid-19") {
+level.innerHTML = "coronavirus";
+level.style.color = "red";
+text.innerHTML = "COVID-19";
+tosdr.href = "https://coronavirus.jhu.edu/map.html";
+} else if (query == "COVID-19") {
+level.innerHTML = "coronavirus";
+level.style.color = "red";
+text.innerHTML = "COVID-19";
+tosdr.href = "https://coronavirus.jhu.edu/map.html";
+} else if (query == "Koronowirus") {
+level.innerHTML = "coronavirus";
+level.style.color = "red";
+text.innerHTML = "COVID-19";
+tosdr.href = "https://coronavirus.jhu.edu/map.html";
+} else if (query == "dark+web") {
+location.replace("https://lb123658.github.io/g-browser/alert");
+} else if (query == "fot+it") {
+location.replace("https://lb123658.github.io/g-browser/alert");
+} else if (query == "deep+web") {
+location.replace("https://lb123658.github.io/g-browser/alert");
+} else {
+;
+}
+
 </script>
 
 </body>
