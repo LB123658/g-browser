@@ -170,6 +170,7 @@ background: #db4437;
 <script>
 var l = document.getElementById("l");
 var d = document.getElementById("d");
+// mode
 if (window.location.search == "?mode=dark") {
    document.getElementById("body").style.background = "#282828";
 } else if (window.location.search == "?mode=light") {
@@ -180,7 +181,12 @@ if (window.location.search == "?mode=dark") {
     document.getElementById("darkScript").remove();
 } else if (location.search.split("&")[1] == "mode=dark") {              
    document.getElementById("body").style.background = "#282828";
-} else if (location.search.split("&")[0] == "?l=es") {
+} else {
+;
+}
+
+// language
+if (location.search.split("&")[0] == "?l=es") {
    document.getElementById("t").innerHTML = "Galaxy - buscar en el internet";
    document.getElementById("input").placeholder = "Buscar...";
    l.href = "https://lb123658.github.io/g-browser/start?l=es";
@@ -204,7 +210,11 @@ if (window.location.search == "?mode=dark") {
    document.getElementById("engine").style.visibility = "hidden";
    document.getElementById("darkScript").remove();
    document.getElementById("cancel").innerHTML = "Zamknij";
-} else if (location.search.split("&")[2] == "web=duckduckgo") {
+} else {
+;
+}
+// search engine
+if (location.search.split("&")[2] == "web=duckduckgo") {
    document.getElementById("form").action = "https://duckduckgo.com/";
    document.getElementById("input").name = "q";
    document.getElementById("input").placeholder = "Search DuckDuckGo...";
@@ -224,6 +234,8 @@ if (window.location.search == "?mode=dark") {
    document.getElementById("form").action = "https://yandex.com/search/";
    document.getElementById("input").name = "text";
    document.getElementById("input").placeholder = "Search Yandex...";
+} else {
+;
 }
 
 function show() {
